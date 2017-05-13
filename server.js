@@ -30,6 +30,22 @@ app.set('db', db);
 
 var db = app.get('db'); 
 
+  // *******************************************
+  // *            Website Visitors             *
+  // *******************************************
+
+  app.get('/visitors', function (req, res, next) {
+    db.getVisitors(function (err, response) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.status(200).send(response)
+        }
+    })
+});
+
+
+
  app.listen(process.env.PORT || port, function() {
     console.log('listening on port', this.address().port );
   });
