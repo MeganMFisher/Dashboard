@@ -35,6 +35,14 @@ section {
     height: 70vh;
 }
 
+h1 {
+    color: rgba(244, 244, 244, .4);
+    font-family: 'Montserrat';
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+
 @media(min-width: 650px) {
 
     section {
