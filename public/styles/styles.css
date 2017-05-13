@@ -12,7 +12,6 @@ section {
         justify-content: space-around;
         width: 100%;
         height: 125vh;
-
 }
 
 .graphBox {
@@ -43,28 +42,36 @@ section {
         flex-direction: row;
     }
 
+    .graphBox {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+
+    }
+
     .graphBoxSmallContainer {
-        width: 50%;
-        height: 100vh;
-        /*margin-left: 1%;*/
+        width: calc(50% - 30px);
+        height: calc(100vh - 30px);
+        margin-left: 15px;
+        margin-top: 15px;
     }
 
     .graphBoxSmall {
-        height: 30vh;
+        height: 29vh;
     }
 
     .graphBoxMedLargeContainer {
-        width: 10;
-        height: 100vh;
-        /*margin-right: 1%;*/
+        width: calc(50% - 30px);
+        height: calc(100vh - 30px);
+        margin-right: 15px;
+        margin-top: 15px;
     }
 
     .graphBoxMedium {
-        height: 41vh;
+        height: 40vh;
     }
 
     .graphBoxLarge {
-        height: 52vh;
+        height: 50vh;
     }
 
 }
