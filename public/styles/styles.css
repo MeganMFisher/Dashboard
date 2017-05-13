@@ -15,13 +15,6 @@ section {
 
 }
 
-.graphBoxSmallContainer {
-}
-
-.graphBoxMedLargeContainer {
-   
-}
-
 .graphBox {
     width: calc(100% - 30px);
     margin-left: 15px;
