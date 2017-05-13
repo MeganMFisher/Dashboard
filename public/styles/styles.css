@@ -35,7 +35,7 @@ section {
     height: 70vh;
 }
 
-@media(min-width: 850px) {
+@media(min-width: 650px) {
 
     section {
         height: 100vh;
