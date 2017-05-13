@@ -1,10 +1,25 @@
 section {
     width: 100%;
-    height: 250vh;
     background-image: linear-gradient(-15deg, #874493 8%, #2259bf 25%, #1bb5ad 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.graphBoxContainers {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height: 125vh;
+
+}
+
+.graphBoxSmallContainer {
+}
+
+.graphBoxMedLargeContainer {
+   
 }
 
 .graphBox {
@@ -27,10 +42,47 @@ section {
     height: 70vh;
 }
 
-@media(min-width: 650px) {
+@media(min-width: 850px) {
+
+    section {
+        height: 100vh;
+        flex-direction: row;
+    }
+
+    .graphBoxSmallContainer {
+        width: 45%;
+        height: 100vh;
+        margin-left: 5%;
+    }
+
+    .graphBoxSmall {
+        height: 30vh;
+    }
+
+    .graphBoxMedLargeContainer {
+        width: 45%;
+        height: 100vh;
+        margin-right: 5%;
+    }
+
+    .graphBoxMedium {
+        height: 41vh;
+    }
+
+    .graphBoxLarge {
+        height: 52vh;
+    }
 
 }
 
-@media(min-width: 1050px) {
+@media(min-width: 1000px) {
+
+     .graphBoxSmallContainer {
+        width: 35%;
+    }
+
+    .graphBoxMedLargeContainer {
+        width: 55%;
+    }
 
 }
