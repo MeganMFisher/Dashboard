@@ -15,10 +15,10 @@
     <section>
         <div class='graphBoxContainers graphBoxSmallContainer'>
             <div class='graphBox graphBoxSmall'>
-                <h1>Sales and Returns</h1>
-                <div>
-                <h2>{{sales[0].totalamountsold - sales[0].totalamountrefunded - sales[0].totalamountunresalableloss | currency}}</h2>
-                <h3>Total Profit</h3>
+                    <h1>Sales and Returns</h1>
+                <div class='salesTotal'>
+                    <h2>{{sales[0].totalamountsold - sales[0].totalamountrefunded - sales[0].totalamountunresalableloss | currency}}</h2>
+                    <h3>Total Profit</h3>
                 </div>
                 <div class='salesStats'>
                     <div>
@@ -26,8 +26,8 @@
                         <p>Total Sales</p>
                     </div>
                     <div>
-                        <h4>{{sales[0].totalamountrefunded | currency}}</p>
-                        <p>Total Refunds</h4>
+                        <h4>{{sales[0].totalamountrefunded | currency}}</h4>
+                            <p>Total Refunds</h4>
                     </div>
                     <div>
                         <h4>{{sales[0].totalamountunresalableloss | currency}}</h4>

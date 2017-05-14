@@ -1,16 +1,32 @@
 .graphBoxSmall h2 {
-    font-size: 36px;
+    font-size: 42px;
 }
 
 .graphBoxSmall h3 {
     font-size: 12px;
     opacity: .4;
-    margin-top: -20px;
+    padding-top: 10px;
+}
+
+.graphBoxSmall h4 {
+    padding-top: 10px;
+}
+
+.graphBoxSmall p {
+    padding-top: 5px;
+}
+
+.salesTotal {
+    padding-top: 30px;
+    margin-left: 15px;
+    padding-left: 20px;
+    width: calc(100% - 30px);
+    height: calc(100% - 100px);
 }
 
 .salesStats {
     width: calc(100% - 30px);
-    height: 50px;
+    height: 60px;
     margin-left: 15px;
     display: flex;
     justify-content: space-around;
@@ -24,4 +40,12 @@
 .salesStats p {
     font-size: 10px;
     opacity: .4;
+}
+
+@media(min-width: 1000px) {
+
+    .graphBoxSmall h2 {
+    font-size: 35px;
+    }
+
 }
