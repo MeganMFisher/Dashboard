@@ -1,7 +1,8 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var massive = require('massive');
-var config = require('./config.js');
+const express = require('express'),
+      bodyParser = require('body-parser'),
+      massive = require('massive'),
+      cors = require('cors'),
+      config = require('./config.js')
 
 var app = express();
 app.use(bodyParser.json());
@@ -35,8 +36,10 @@ var db = app.get('db');
   // *******************************************
 
     app.get('/visitors', (req, res, next) => {
-      db.getVisitors((response) => {
-            res.status(200).send(response)
+      db.getVisitors((err, visitorData) => {
+        if(!err) {
+            res.send(visitorData)
+        }
       })
     });
 
@@ -45,8 +48,10 @@ var db = app.get('db');
   // *******************************************
 
     app.get('/sales', (req, res, next) => {
-      db.getSalesAndReturns((response) => {
-            res.status(200).send(response)
+      db.getSalesAndReturns((err, salesData) => {
+        if(!err) {
+            res.send(salesData)
+        }
       })
     });
 
@@ -55,8 +60,10 @@ var db = app.get('db');
   // *******************************************
 
     app.get('/product', (req, res, next) => {
-      db.getProductTypesSold((response) => {
-            res.status(200).send(response)
+      db.getProductTypesSold((err, productData) => {
+        if(!err) {
+            res.send(productData)
+        }
       })
     });
 
@@ -65,8 +72,10 @@ var db = app.get('db');
   // *******************************************
 
     app.get('/inventory', (req, res, next) => {
-      db.getProductInventory((response) => {
-            res.status(200).send(response)
+      db.getProductInventory((err, inventoryData) => {
+        if(!err) {
+            res.send(inventoryData)
+        }
       })
     });
 
@@ -75,8 +84,10 @@ var db = app.get('db');
   // *******************************************
 
     app.get('/payment', (req, res, next) => {
-      db.getPaymentTypeReceived((response) => {
-            res.status(200).send(response)
+      db.getPaymentTypeReceived((err, paymentData) => {
+        if(!err) {
+            res.send(paymentData)
+        }
       })
     });
 

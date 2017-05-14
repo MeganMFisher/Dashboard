@@ -8,7 +8,7 @@ angular.module('app').service('mainSrv', function($http){
 
     this.getVisitors = () => {
       return $http.get(devUrl + '/visitors').then((res) => {
-          return resp; 
+          return res; 
       })
     }
 
