@@ -1,9 +1,9 @@
-angular.module('app').controller('mainCtrl', function($scope, mainSrv){
+angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
 
-  // *******************************************
-  // *            Website Visitors             *
-  // *******************************************
+    // *******************************************
+    // *            Website Visitors             *
+    // *******************************************
 
     $scope.getVisitors = () => {
         mainSrv.getVisitors().then((res) => {
@@ -14,9 +14,9 @@ angular.module('app').controller('mainCtrl', function($scope, mainSrv){
     $scope.getVisitors()
 
 
-  // *******************************************
-  // *           Sales and Returns             *
-  // *******************************************
+    // *******************************************
+    // *           Sales and Returns             *
+    // *******************************************
 
     $scope.getSalesInfo = () => {
         mainSrv.getSalesInfo().then((res) => {
@@ -26,9 +26,9 @@ angular.module('app').controller('mainCtrl', function($scope, mainSrv){
     }
     $scope.getSalesInfo()
 
-  // *******************************************
-  // *           Product Type Sold             *
-  // *******************************************
+    // *******************************************
+    // *           Product Type Sold             *
+    // *******************************************
 
     $scope.getProductInfo = () => {
         mainSrv.getProductInfo().then((res) => {
@@ -38,9 +38,9 @@ angular.module('app').controller('mainCtrl', function($scope, mainSrv){
     }
     $scope.getProductInfo()
 
-  // *******************************************
-  // *           Product Inventory             *
-  // *******************************************
+    // *******************************************
+    // *           Product Inventory             *
+    // *******************************************
 
     $scope.getInventoryInfo = () => {
         mainSrv.getProductInfo().then((res) => {
@@ -50,9 +50,9 @@ angular.module('app').controller('mainCtrl', function($scope, mainSrv){
     }
     $scope.getInventoryInfo()
 
-  // *******************************************
-  // *           Product Inventory             *
-  // *******************************************
+    // *******************************************
+    // *           Product Inventory             *
+    // *******************************************
 
     $scope.getPaymentInfo = () => {
         mainSrv.getPaymentInfo().then((res) => {
@@ -62,5 +62,5 @@ angular.module('app').controller('mainCtrl', function($scope, mainSrv){
     }
     $scope.getPaymentInfo()
 
-    
+
 })

@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='app'>
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="reset.css" rel="stylesheet">
-        <link href="styles/styles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
-    </head>
-    <body ng-controller="mainCtrl">
-    
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="reset.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+</head>
+
+<body ng-controller="mainCtrl">
     <section>
-
         <div class='graphBoxContainers graphBoxSmallContainer'>
-
-        <div class='graphBox graphBoxSmall'>
-            <h1>Sales and Returns</h1>
+            <div class='graphBox graphBoxSmall'>
+                <h1>Sales and Returns</h1>
+            </div>
+            <div class='graphBox graphBoxSmall'>
+                <h1>Website Visitors</h1>
+            </div>
+            <div class='graphBox graphBoxSmall'>
+                <h1>Product Inventory</h1>
+            </div>
         </div>
-
-        <div class='graphBox graphBoxSmall'>
-            <h1>Website Visitors</h1>
-        </div>
-
-        <div class='graphBox graphBoxSmall'>
-            <h1>Product Inventory</h1>
-        </div>
-
-        </div>
-
         <div class='graphBoxContainers graphBoxMedLargeContainer'>
-
-        <div class='graphBox graphBoxMedium'>
-            <h1>Product Type Sold</h1>
+            <div class='graphBox graphBoxMedium'>
+                <h1>Product Type Sold</h1>
+            </div>
+            <div class='graphBox graphBoxLarge'>
+                <h1>Payments Received</h1>
+            </div>
         </div>
-
-        <div class='graphBox graphBoxLarge'>
-            <h1>Payments Received</h1>
-        </div>
-
-        </div>
-
     </section>
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
     <script src='js/app.js'></script>
     <script src='js/mainCtrl.js'></script>
     <script src='js/mainSrv.js'></script>
-    </body>
+</body>
+
 </html>
