@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS websiteVisitors, productInventory, salesAndReturns;
+DROP TABLE IF EXISTS websiteVisitors, productInventory, salesAndReturns, productTypesSold;
 
 CREATE TABLE websiteVisitors
 (
@@ -121,5 +121,18 @@ CREATE TABLE salesAndReturns
   id SERIAL PRIMARY KEY,
   month VARCHAR(50),
   totalAmoundSold INTEGER,
-  totalAmountRefunded INTEGER
+  totalAmountRefunded INTEGER,
+  totalAmountUnresalableLoss INTEGER
+);
+
+INSERT INTO salesAndReturns (month, totalAmoundSold, totalAmountRefunded, totalAmountUnresalableLoss) VALUES ('may', 12520, 1319, 134);
+INSERT INTO salesAndReturns (month, totalAmoundSold, totalAmountRefunded, totalAmountUnresalableLoss) VALUES ('april', 19876, 1809, 354);
+INSERT INTO salesAndReturns (month, totalAmoundSold, totalAmountRefunded, totalAmountUnresalableLoss) VALUES ('march', 18228, 1419, 291);
+
+CREATE TABLE productTypesSold
+(
+  id SERIAL PRIMARY KEY,
+  month VARCHAR(50),
+  productType VARCHAR(50),
+  numberProductTypeSold INTEGER
 );
