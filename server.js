@@ -34,16 +34,51 @@ var db = app.get('db');
   // *            Website Visitors             *
   // *******************************************
 
-  app.get('/visitors', function (req, res, next) {
-    db.getVisitors(function (err, response) {
-        if (err) {
-            res.send(err);
-        } else {
+    app.get('/visitors', (req, res, next) => {
+      db.getVisitors((response) => {
             res.status(200).send(response)
-        }
-    })
-});
+      })
+    });
 
+  // *******************************************
+  // *           Sales and Returns             *
+  // *******************************************
+
+    app.get('/sales', (req, res, next) => {
+      db.getSalesAndReturns((response) => {
+            res.status(200).send(response)
+      })
+    });
+
+  // *******************************************
+  // *           Product Type Sold             *
+  // *******************************************
+
+    app.get('/product', (req, res, next) => {
+      db.getProductTypesSold((response) => {
+            res.status(200).send(response)
+      })
+    });
+
+  // *******************************************
+  // *           Product Inventory             *
+  // *******************************************
+
+    app.get('/inventory', (req, res, next) => {
+      db.getProductInventory((response) => {
+            res.status(200).send(response)
+      })
+    });
+
+  // *******************************************
+  // *           Product Inventory             *
+  // *******************************************
+
+    app.get('/payment', (req, res, next) => {
+      db.getPaymentTypeReceived((response) => {
+            res.status(200).send(response)
+      })
+    });
 
 
  app.listen(process.env.PORT || port, function() {
