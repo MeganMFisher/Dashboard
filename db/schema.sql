@@ -136,3 +136,16 @@ CREATE TABLE productTypesSold
   productType VARCHAR(50),
   numberProductTypeSold INTEGER
 );
+
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'clothing', 291);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'shoes', 149);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'accessories', 31);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'makeup', 11);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'clothing', 328);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'shoes', 68);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'accessories', 42);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'makeup', 26);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('march', 'clothing', 419);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('march', 'shoes', 58);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('march', 'accessories', 98);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('march', 'makeup', 32);
