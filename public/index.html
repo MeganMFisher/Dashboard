@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="reset.css" rel="stylesheet">
     <link href="styles/styles.css" rel="stylesheet">
+    <link href="styles/sales.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
 </head>
 
@@ -16,10 +17,20 @@
             <div class='graphBox graphBoxSmall'>
                 <h1>Sales and Returns</h1>
                 <h2>{{sales[0].totalamountsold - sales[0].totalamountrefunded - sales[0].totalamountunresalableloss | currency}}</h2>
-                <div>
-                <p>{{sales[0].totalamountsold | currency}}</p>
-                <p>{{sales[0].totalamountrefunded | currency}}</p>
-                <p>{{sales[0].totalamountunresalableloss | currency}}</p>
+                <h3>Total Profit</h3>
+                <div class='salesStats'>
+                    <div>
+                        <h4>{{sales[0].totalamountsold | currency}}</h4>
+                        <p>Total Sales</p>
+                    </div>
+                    <div>
+                        <h4>{{sales[0].totalamountrefunded | currency}}</p>
+                        <p>Total Refunds</h4>
+                    </div>
+                    <div>
+                        <h4>{{sales[0].totalamountunresalableloss | currency}}</h4>
+                        <p>Total Losses</p>
+                    </div>
                 </div>
             </div>
             <div class='graphBox graphBoxSmall'>

@@ -1,0 +1,27 @@
+.graphBoxSmall h2 {
+    font-size: 36px;
+}
+
+.graphBoxSmall h3 {
+    font-size: 12px;
+    opacity: .4;
+    margin-top: -20px;
+}
+
+.salesStats {
+    width: calc(100% - 30px);
+    height: 50px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 2px solid rgba(0, 0, 0, .3);
+}
+
+.salesStats h4 {
+    font-size: 12px;
+}
+
+.salesStats p {
+    font-size: 10px;
+    opacity: .4;
+}
