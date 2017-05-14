@@ -1,5 +1,17 @@
 angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
+    // *******************************************
+    // *           Sales and Returns             *
+    // *******************************************
+
+    $scope.getSalesInfo = () => {
+        mainSrv.getSalesInfo().then((res) => {
+            console.log(res[0])
+            $scope.sales = res
+        })
+    }
+    $scope.getSalesInfo()
+
 
     // *******************************************
     // *            Website Visitors             *
@@ -7,7 +19,7 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
     $scope.getVisitors = () => {
         mainSrv.getVisitors().then((res) => {
-            console.log(res)
+            // console.log(res)
             $scope.visitors = res.data
         })
     }
@@ -15,16 +27,17 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
 
     // *******************************************
-    // *           Sales and Returns             *
+    // *           Product Inventory             *
     // *******************************************
 
-    $scope.getSalesInfo = () => {
-        mainSrv.getSalesInfo().then((res) => {
-            console.log(res)
-            $scope.sales = res.data
+    $scope.getInventoryInfo = () => {
+        mainSrv.getProductInfo().then((res) => {
+            // console.log(res)
+            $scope.inventory = res.data
         })
     }
-    $scope.getSalesInfo()
+    $scope.getInventoryInfo()
+
 
     // *******************************************
     // *           Product Type Sold             *
@@ -32,31 +45,20 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
     $scope.getProductInfo = () => {
         mainSrv.getProductInfo().then((res) => {
-            console.log(res)
+            // console.log(res)
             $scope.products = res.data
         })
     }
     $scope.getProductInfo()
 
-    // *******************************************
-    // *           Product Inventory             *
-    // *******************************************
-
-    $scope.getInventoryInfo = () => {
-        mainSrv.getProductInfo().then((res) => {
-            console.log(res)
-            $scope.inventory = res.data
-        })
-    }
-    $scope.getInventoryInfo()
 
     // *******************************************
-    // *           Product Inventory             *
+    // *           Payments Received             *
     // *******************************************
 
     $scope.getPaymentInfo = () => {
         mainSrv.getPaymentInfo().then((res) => {
-            console.log(res)
+            // console.log(res)
             $scope.payments = res.data
         })
     }

@@ -15,6 +15,12 @@
         <div class='graphBoxContainers graphBoxSmallContainer'>
             <div class='graphBox graphBoxSmall'>
                 <h1>Sales and Returns</h1>
+                <h2>{{sales[0].totalamountsold - sales[0].totalamountrefunded - sales[0].totalamountunresalableloss | currency}}</h2>
+                <div>
+                <p>{{sales[0].totalamountsold | currency}}</p>
+                <p>{{sales[0].totalamountrefunded | currency}}</p>
+                <p>{{sales[0].totalamountunresalableloss | currency}}</p>
+                </div>
             </div>
             <div class='graphBox graphBoxSmall'>
                 <h1>Website Visitors</h1>
@@ -34,8 +40,8 @@
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
     <script src='js/app.js'></script>
-    <script src='js/mainCtrl.js'></script>
     <script src='js/mainSrv.js'></script>
+    <script src='js/mainCtrl.js'></script>
 </body>
 
 </html>
