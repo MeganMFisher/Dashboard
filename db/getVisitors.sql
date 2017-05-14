@@ -1,2 +1,2 @@
-SELECT id, day, visitors
+SELECT id, day, knownContacts, pageVisits, visitors
 FROM websiteVisitors
