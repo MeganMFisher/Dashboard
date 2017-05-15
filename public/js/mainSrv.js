@@ -1,6 +1,6 @@
 angular.module('app').service('mainSrv', function ($http) {
 
-  let devUrl = 'http://localhost:3000'
+  let devUrl = 'http://localhost:3500'
 
   // *******************************************
   // *           Sales and Returns             *
