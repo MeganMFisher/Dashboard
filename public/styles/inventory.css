@@ -9,7 +9,7 @@
 }
 
 .inventoryTotal h2 {
-    font-size: 35px;
+    font-size: 32px;
 }
 
 .inventoryTotal h3 {
@@ -36,13 +36,4 @@
     font-size: 8px;
     opacity: .4;
     padding-top: 5px;
-}
-
-@media(min-width: 1000px) {
-
-    .graphBoxSmall h2 {
-    font-size: 35px;
-    }
-
-
 }

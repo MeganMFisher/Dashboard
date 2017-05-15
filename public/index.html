@@ -11,6 +11,7 @@
     <link href="styles/inventory.css" rel="stylesheet">
     <link href="styles/visitors.css" rel="stylesheet">
     <link href="styles/products.css" rel="stylesheet">
+    <link href="styles/payments.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
 </head>
 
@@ -18,7 +19,7 @@
     <section>
         <div class='graphBoxContainers graphBoxSmallContainer'>
             <div class='graphBox graphBoxSmall'>
-                    <h1>Sales and Returns</h1>
+                <h1>Sales and Returns</h1>
                 <div class='salesTotal'>
                     <h2>{{sales[0].totalamountsold - sales[0].totalamountrefunded - sales[0].totalamountunresalableloss | currency}}</h2>
                     <h3>Total Profit</h3>
@@ -30,7 +31,7 @@
                     </div>
                     <div>
                         <h4>{{sales[0].totalamountrefunded | currency}}</h4>
-                            <p>Total Refunds</h4>
+                        <p>Total Refunds</h4>
                     </div>
                     <div>
                         <h4>{{sales[0].totalamountunresalableloss | currency}}</h4>
@@ -60,12 +61,12 @@
                 <h1>Product Inventory</h1>
                 <div class='inventoryTotal'>
                     <div>
-                    <h2>{{inventory[0].totalnumbersold}}</h2>
-                    <h3>Products Sold</h3>
+                        <h2>{{inventory[0].totalnumbersold}}</h2>
+                        <h3>Products Sold</h3>
                     </div>
                     <div>
-                    <h2>{{inventory[0].totalnumberreturn}}</h2>
-                    <h3>Products Returned</h3>
+                        <h2>{{inventory[0].totalnumberreturn}}</h2>
+                        <h3>Products Returned</h3>
                     </div>
                 </div>
                 <div class='inventoryStats'>
@@ -75,7 +76,7 @@
                     </div>
                     <div>
                         <h4>{{inventory[0].totalnumberresalable}}</h4>
-                            <p>Product Losses</h4>
+                        <p>Product Losses</h4>
                     </div>
                     <div>
                         <h4>{{inventory[0].totalnumberresalable / inventory[0].totalnumberreturn | number: 0}}%</h4>
@@ -91,25 +92,25 @@
                     <div class='productTypeGraphBox'></div>
                     <div class='productTypeStats'>
                         <div class='productKeyBoxes'>
-                            <div class='productKeyCircle'></div>
+                            <div class='keyCircle greenCircle'></div>
                             <h4>00%
                                 <p>Product Type</p>
                             </h4>
                         </div>
                         <div class='productKeyBoxes'>
-                            <div class='productKeyCircle blueCircle'></div>
+                            <div class='keyCircle blueCircle'></div>
                             <h4>00%
                                 <p>Product Type</p>
                             </h4>
                         </div>
                         <div class='productKeyBoxes'>
-                            <div class='productKeyCircle  purpleCircle'></div>
+                            <div class='keyCircle  purpleCircle'></div>
                             <h4>00%
                                 <p>Product Type</p>
                             </h4>
                         </div>
                         <div class='productKeyBoxes'>
-                            <div class='productKeyCircle pinkCircle'></div>
+                            <div class='keyCircle pinkCircle'></div>
                             <h4>00%
                                 <p>Product Type</p>
                             </h4>
@@ -119,6 +120,22 @@
             </div>
             <div class='graphBox graphBoxLarge'>
                 <h1>Payments Received</h1>
+                <div class='paymentsTotal'>
+                    <div>
+                        <h2>00%</h2>
+                        <div class='paymentsCircleKeys'>
+                            <div class='keyCircle greenCircle'></div>
+                            <h3>Credit Card</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>00%</h2>
+                        <div class='paymentsCircleKeys'>
+                            <div class='keyCircle purpleCircle'></div>
+                            <h3>PayPal</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

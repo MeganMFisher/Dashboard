@@ -22,10 +22,19 @@
     display: flex;
 }
 
-.productKeyCircle {
+.paymentsCircleKeys {
+    display: flex;
+    height: 15px;
+    width: 100px;
+}
+
+.keyCircle {
     width: 10px;
     height: 10px;
     border-radius: 50%;
+}
+
+.greenCircle{
     background: #0fe997;
 }
 
