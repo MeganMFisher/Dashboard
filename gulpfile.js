@@ -6,11 +6,11 @@ const autoprefixer = require('gulp-autoprefixer');
 const nodemon = require('nodemon');
 
 // DECLARE FILE PATHS =============================
-const basePath = './public/app/';
-const resetPath = `${basePath}styles/normalize.css`;
+const basePath = './public';
+const resetPath = "./public/styles/reset.css";
 
 const paths = {
-  jsSrc: [`${basePath}app.js`, `${basePath}*.js`, `${basePath}**/*.js`],
+  jsSrc: [`${basePath}/js/app.js`, `${basePath}js/*.js`],
   scssSrc: [`${resetPath}`, `${basePath}/styles/*.scss`],
   server: './server/server.js'
 };
