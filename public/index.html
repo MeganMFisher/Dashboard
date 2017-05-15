@@ -8,6 +8,7 @@
     <link href="reset.css" rel="stylesheet">
     <link href="styles/styles.css" rel="stylesheet">
     <link href="styles/sales.css" rel="stylesheet">
+    <link href="styles/inventory.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
 </head>
 
@@ -43,25 +44,25 @@
                 <div class='inventoryTotal'>
                     <div>
                     <h2>{{inventory[0].totalnumbersold}}</h2>
-                    <h3>Sold</h3>
+                    <h3>Products Sold</h3>
                     </div>
                     <div>
                     <h2>{{inventory[0].totalnumberreturn}}</h2>
-                    <h3>Returned</h3>
+                    <h3>Products Returned</h3>
                     </div>
                 </div>
                 <div class='inventoryStats'>
                     <div>
                         <h4>{{inventory[0].totalnumberreturn / inventory[0].totalnumbersold * 100 | number:0}}%</h4>
-                        <p>Percentage Returned</p>
+                        <p>Percent Returned</p>
                     </div>
                     <div>
                         <h4>{{inventory[0].totalnumberresalable}}</h4>
-                            <p>Product Loss</h4>
+                            <p>Product Losses</h4>
                     </div>
                     <div>
                         <h4>{{inventory[0].totalnumberresalable / inventory[0].totalnumberreturn | number: 0}}%</h4>
-                        <p>Percentage Resalable</p>
+                        <p>Percent Resalable</p>
                     </div>
                 </div>
             </div>

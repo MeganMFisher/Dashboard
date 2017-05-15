@@ -6,6 +6,7 @@ section {
     justify-content: space-around;
     font-family: 'Montserrat';
     color: white;
+    letter-spacing: 1px;
 }
 
 .graphBoxContainers {
