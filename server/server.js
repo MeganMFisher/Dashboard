@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/public'));
 
-var port = 3000;
+var port = 3500;
 
 
 var db = massive.connect({

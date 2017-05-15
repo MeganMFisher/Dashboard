@@ -10,7 +10,7 @@ const basePath = './public';
 const resetPath = "./public/styles/reset.css";
 
 const paths = {
-  jsSrc: [`${basePath}/js/app.js`, `${basePath}js/*.js`],
+  jsSrc: [`${basePath}/js/app.js`, `${basePath}/js/*.js`],
   scssSrc: [`${resetPath}`, `${basePath}/styles/*.scss`],
   server: './server/server.js'
 };
