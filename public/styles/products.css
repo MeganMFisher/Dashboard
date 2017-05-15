@@ -1,0 +1,53 @@
+.productTypeBoxes {
+    width: 100%;
+    height: calc(100% - 30px);
+    display: flex;
+}
+
+.productTypeGraphBox {
+    width: 60%;
+    height: 100%;
+}
+
+.productTypeStats {
+    width: 40%;
+    height: calc(95% - 10px);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.productKeyBoxes {
+    display: flex;
+}
+
+.productKeyCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0fe997;
+}
+
+.blueCircle {
+    background: #06f0e9;
+}
+
+.purpleCircle {
+    background: #7673e2;
+}
+
+.pinkCircle {
+    background: #f476cf;
+}
+
+.productKeyBoxes h4 {
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.productKeyBoxes p {
+    font-size: 10px;
+    padding-top: 7px;
+    opacity: .4;
+}
