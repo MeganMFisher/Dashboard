@@ -22,12 +22,6 @@
     display: flex;
 }
 
-.paymentsCircleKeys {
-    display: flex;
-    height: 15px;
-    width: 100px;
-}
-
 .keyCircle {
     width: 10px;
     height: 10px;
@@ -53,6 +47,7 @@
 .productKeyBoxes h4 {
     font-size: 12px;
     padding-left: 10px;
+    width: 100px;
 }
 
 .productKeyBoxes p {
