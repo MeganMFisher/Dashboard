@@ -1,22 +1,17 @@
-.salesTotal {
+.inventoryTotal {
     padding-top: 30px;
     margin-left: 15px;
     padding-left: 20px;
     width: calc(100% - 30px);
     height: calc(100% - 100px);
+    display: flex;
 }
 
-.salesTotal h2 {
-    font-size: 42px;
+.inventoryTotal h2 {
+    font-size: 35px;
 }
 
-.salesTotal h3 {
-    font-size: 12px;
-    opacity: .4;
-    padding-top: 10px;
-}
-
-.salesStats {
+.inventoryStats {
     width: calc(100% - 30px);
     height: 60px;
     margin-left: 15px;
@@ -25,21 +20,19 @@
     border-top: 2px solid rgba(0, 0, 0, .3);
 }
 
-.salesStats h4 {
+.inventoryStats h4 {
     font-size: 12px;
-    padding-top: 10px;
 }
 
-.salesStats p {
-    padding-top: 5px;
+.inventoryStats p {
     font-size: 10px;
     opacity: .4;
 }
 
 @media(min-width: 1000px) {
 
-    .salesTotal h2 {
-    font-size: 32px;
+    .graphBoxSmall h2 {
+    font-size: 35px;
     }
 
 }

@@ -6,7 +6,7 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
     $scope.getSalesInfo = () => {
         mainSrv.getSalesInfo().then((res) => {
-            console.log(res[0])
+            // console.log(res[0])
             $scope.sales = res
         })
     }
@@ -31,9 +31,9 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
     // *******************************************
 
     $scope.getInventoryInfo = () => {
-        mainSrv.getProductInfo().then((res) => {
+        mainSrv.getInventoryInfo().then((res) => {
             // console.log(res)
-            $scope.inventory = res.data
+            $scope.inventory = res
         })
     }
     $scope.getInventoryInfo()

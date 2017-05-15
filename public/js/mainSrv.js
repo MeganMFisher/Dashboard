@@ -29,7 +29,7 @@ angular.module('app').service('mainSrv', function ($http) {
 
   this.getInventoryInfo = () => {
     return $http.get(devUrl + '/inventory').then((res) => {
-      return res
+      return res.data
     })
   }
 
