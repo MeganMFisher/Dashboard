@@ -6,14 +6,15 @@ const express = require('express'),
 
 var app = express();
 app.use(bodyParser.json());
-app.use('/', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + './../public'));
 
 var port = 3500;
 
 
 var db = massive.connect({
     // connectionString: process.env.database
-    connectionString: config.database || process.env.database
+    // connectionString: config.database || process.env.database
+    connectionString: config.database
   },
   function (err, localdb) {
     db = localdb;
