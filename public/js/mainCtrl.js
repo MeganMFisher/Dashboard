@@ -17,52 +17,68 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
     // *            Website Visitors             *
     // *******************************************
 
-    $scope.getVisitors = () => {
+
+    let getVisitors = () => {
         mainSrv.getVisitors().then((res) => {
-            // console.log(res)
-            $scope.visitors = res.data
+             let visitors = res.data
+             console.log(visitors)
+            let monthVisitors = []
+            visitors.map((e) => {
+
+                let visitorDate = e.day.split('-')
+                if(visitorDate[1] === '05'){
+                  monthVisitors.push(e)
+                }
+        })
+                  return monthVisitors
+            // console.log(visitors)
+            // $scope.visitors = res.data
+            // console.log($scope.visitors)
         })
     }
-    $scope.getVisitors()
+    getVisitors()
+
+
+
 
 
     // *******************************************
     // *           Product Inventory             *
     // *******************************************
 
-    $scope.getInventoryInfo = () => {
+    let getInventoryInfo = () => {
         mainSrv.getInventoryInfo().then((res) => {
             // console.log(res)
             $scope.inventory = res
         })
     }
-    $scope.getInventoryInfo()
+    getInventoryInfo()
 
 
     // *******************************************
     // *           Product Type Sold             *
     // *******************************************
 
-    $scope.getProductInfo = () => {
+    let getProductInfo = () => {
         mainSrv.getProductInfo().then((res) => {
             // console.log(res)
             $scope.products = res.data
         })
     }
-    $scope.getProductInfo()
+    getProductInfo()
 
 
     // *******************************************
     // *           Payments Received             *
     // *******************************************
 
-    $scope.getPaymentInfo = () => {
+    let getPaymentInfo = () => {
         mainSrv.getPaymentInfo().then((res) => {
             // console.log(res)
             $scope.payments = res.data
         })
     }
-    $scope.getPaymentInfo()
+    getPaymentInfo()
 
 
 })
