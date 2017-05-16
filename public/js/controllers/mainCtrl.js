@@ -41,17 +41,4 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
     getProductInfo()
 
 
-    // *******************************************
-    // *           Payments Received             *
-    // *******************************************
-
-    let getPaymentInfo = () => {
-        mainSrv.getPaymentInfo().then((res) => {
-            // console.log(res)
-            $scope.payments = res.data
-        })
-    }
-    getPaymentInfo()
-
-
 })
