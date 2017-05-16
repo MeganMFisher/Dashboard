@@ -6,39 +6,31 @@
     // *******************************************
 
  
-    let getVisitors = () => {
+    let getVisitors = (monthSelected) => {
         mainSrv.getVisitors().then((res) => {
              let visitors = res.data
-            //  console.log(visitors)
+             console.log(visitors)
             let monthVisitors = []
             visitors.map((e) => {
                 let visitorDate = e.day.split('-')
-                if(visitorDate[1] === '05'){
+                if(visitorDate[1] === monthSelected){
                   monthVisitors.push(e)
                 }
             })
             let visitorsTotal = 0
+            let pageVisits = 0
+            let knownContacts = 0
+            
             monthVisitors.map((e) =>{
                 visitorsTotal += e.visitors
-            })
-            $scope.visitors = visitorsTotal
-            // console.log($scope.visitors)
-
-            let pageVisits = 0
-            monthVisitors.map((e) =>{
                 pageVisits += e.pagevisits
-            })
-            $scope.pageVisit = pageVisits
-            // console.log($scope.pageVisit)
-
-            let knownContacts = 0
-            monthVisitors.map((e) =>{
                 knownContacts += e.knowncontacts
             })
+            $scope.visitors = visitorsTotal
+            $scope.pageVisit = pageVisits
             $scope.contacts = knownContacts
-            // console.log($scope.contacts)
         })
     }
-    getVisitors()
+    getVisitors('05')
 
 })
