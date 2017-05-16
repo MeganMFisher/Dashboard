@@ -14,7 +14,8 @@ angular.module('app').controller('paymentsCtrl', function ($scope, mainSrv) {
                     monthlyPayments.push(e)
                 }
             })
-            console.log(monthlyPayments)
+
+
             let paypalTotals = 0
             monthlyPayments.map((e) => {
                 paypalTotals += e.paypaltotal
@@ -22,6 +23,14 @@ angular.module('app').controller('paymentsCtrl', function ($scope, mainSrv) {
             })
             console.log(paypalTotals)
 
+            let ccTotals = 0
+            monthlyPayments.map((e) => {
+                ccTotals += e.cctotal
+            })
+            console.log(ccTotals)
+
+            let totalPayments = paypalTotals  + ccTotals
+            console.log(totalPayments)
         })
     }
     getPaymentInfo()
