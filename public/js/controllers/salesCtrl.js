@@ -6,6 +6,7 @@ angular.module('app').controller('salesCtrl', function ($scope, mainSrv) {
 
     let getSalesInfo = (monthWordSelected) => {
         mainSrv.getSalesInfo().then((res) => {
+            console.log(res[0])
             let salesNums = res
             let salesMonth = []
             salesNums.map((e) => {
@@ -13,11 +14,10 @@ angular.module('app').controller('salesCtrl', function ($scope, mainSrv) {
                     salesMonth.push(e)
                 }
             })
-            $scope.sales = salesMonth
+            $scope.sales = salesMonth[0]
             console.log($scope.sales)
         })
     }
     getSalesInfo('may')
-
 
 })
