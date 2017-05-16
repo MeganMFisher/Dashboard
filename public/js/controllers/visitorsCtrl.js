@@ -9,7 +9,6 @@
     let getVisitors = (monthSelected) => {
         mainSrv.getVisitors().then((res) => {
              let visitors = res.data
-            //  console.log(visitors)
             let monthVisitors = []
             visitors.map((e) => {
                 let visitorDate = e.day.split('-')

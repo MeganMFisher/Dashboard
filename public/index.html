@@ -51,29 +51,29 @@
                     </div>
                 </div>
             </div>
-            <div class='graphBox graphBoxSmall'>
+            <div class='graphBox graphBoxSmall' ng-controller='inventoryCtrl'>
                 <h1>Product Inventory</h1>
                 <div class='inventoryTotal'>
                     <div>
-                        <h2>{{inventory[0].totalnumbersold}}</h2>
+                        <h2>{{inventory.totalnumbersold}}</h2>
                         <h3>Products Sold</h3>
                     </div>
                     <div>
-                        <h2>{{inventory[0].totalnumberreturn}}</h2>
+                        <h2>{{inventory.totalnumberreturn}}</h2>
                         <h3>Products Returned</h3>
                     </div>
                 </div>
                 <div class='inventoryStats'>
                     <div>
-                        <h4>{{inventory[0].totalnumberreturn / inventory[0].totalnumbersold * 100 | number:0}}%</h4>
+                        <h4>{{inventory.totalnumberreturn / inventory.totalnumbersold * 100 | number:0}}%</h4>
                         <p>Percent Returned</p>
                     </div>
                     <div>
-                        <h4>{{inventory[0].totalnumberresalable}}</h4>
+                        <h4>{{inventory.totalnumberresalable}}</h4>
                         <p>Product Losses</h4>
                     </div>
                     <div>
-                        <h4>{{inventory[0].totalnumberresalable / inventory[0].totalnumberreturn | number: 0}}%</h4>
+                        <h4>{{inventory.totalnumberresalable / inventory.totalnumberreturn | number: 0}}%</h4>
                         <p>Percent Resalable</p>
                     </div>
                 </div>

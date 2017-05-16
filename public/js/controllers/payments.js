@@ -15,8 +15,6 @@ angular.module('app').controller('paymentsCtrl', function ($scope, mainSrv) {
                 }
             })
 
-            // console.log(monthlyPayments)
-
             let paypalTotals = 0
             let ccTotals = 0
             monthlyPayments.map((e) => {
