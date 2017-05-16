@@ -30,10 +30,14 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
                   monthVisitors.push(e)
                 }
         })
-                  return monthVisitors
-            // console.log(visitors)
-            // $scope.visitors = res.data
-            // console.log($scope.visitors)
+           
+            // $scope.visitors = monthVisitors
+            let visitorsTotal = 0
+            monthVisitors.map((e) =>{
+                visitorsTotal += e.visitors
+            })
+            console.log(visitorsTotal)
+            return visitorsTotal
         })
     }
     getVisitors()
