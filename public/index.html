@@ -12,23 +12,23 @@
 <body ng-controller="mainCtrl">
     <section>
         <div class='graphBoxContainers graphBoxSmallContainer'>
-            <div class='graphBox graphBoxSmall'>
+            <div class='graphBox graphBoxSmall' ng-controller='salesCtrl'>
                 <h1>Sales and Returns</h1>
                 <div class='salesTotal'>
-                    <h2>{{sales[0].totalamountsold - sales[0].totalamountrefunded - sales[0].totalamountunresalableloss | currency}}</h2>
+                    <h2>{{sales.totalamountsold - sales.totalamountrefunded - sales.totalamountunresalableloss | currency}}</h2>
                     <h3>Total Profit</h3>
                 </div>
                 <div class='salesStats'>
                     <div>
-                        <h4>{{sales[0].totalamountsold | currency}}</h4>
+                        <h4>{{sales.totalamountsold | currency}}</h4>
                         <p>Total Sales</p>
                     </div>
                     <div>
-                        <h4>{{sales[0].totalamountrefunded | currency}}</h4>
+                        <h4>{{sales.totalamountrefunded | currency}}</h4>
                         <p>Total Refunds</h4>
                     </div>
                     <div>
-                        <h4>{{sales[0].totalamountunresalableloss | currency}}</h4>
+                        <h4>{{sales.totalamountunresalableloss | currency}}</h4>
                         <p>Total Losses</p>
                     </div>
                 </div>

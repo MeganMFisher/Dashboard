@@ -4,13 +4,13 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
     // *           Sales and Returns             *
     // *******************************************
 
-    $scope.getSalesInfo = () => {
-        mainSrv.getSalesInfo().then((res) => {
-            // console.log(res[0])
-            $scope.sales = res
-        })
-    }
-    $scope.getSalesInfo()
+    // $scope.getSalesInfo = () => {
+    //     mainSrv.getSalesInfo().then((res) => {
+    //         // console.log(res[0])
+    //         $scope.sales = res
+    //     })
+    // }
+    // $scope.getSalesInfo()
 
 
 
