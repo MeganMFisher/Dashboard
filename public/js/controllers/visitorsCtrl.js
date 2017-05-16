@@ -9,7 +9,7 @@
     let getVisitors = () => {
         mainSrv.getVisitors().then((res) => {
              let visitors = res.data
-             console.log(visitors)
+            //  console.log(visitors)
             let monthVisitors = []
             visitors.map((e) => {
                 let visitorDate = e.day.split('-')
@@ -22,21 +22,21 @@
                 visitorsTotal += e.visitors
             })
             $scope.visitors = visitorsTotal
-            console.log($scope.visitors)
+            // console.log($scope.visitors)
 
             let pageVisits = 0
             monthVisitors.map((e) =>{
                 pageVisits += e.pagevisits
             })
             $scope.pageVisit = pageVisits
-            console.log($scope.pageVisit)
+            // console.log($scope.pageVisit)
 
             let knownContacts = 0
             monthVisitors.map((e) =>{
                 knownContacts += e.knowncontacts
             })
             $scope.contacts = knownContacts
-            console.log($scope.contacts)
+            // console.log($scope.contacts)
         })
     }
     getVisitors()

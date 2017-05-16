@@ -6,8 +6,22 @@ angular.module('app').controller('paymentsCtrl', function ($scope, mainSrv) {
 
     let getPaymentInfo = () => {
         mainSrv.getPaymentInfo().then((res) => {
-            console.log(res.data)
-            $scope.payments = res.data
+            let payments = res.data
+            let monthlyPayments = []
+            payments.map((e) => {
+                let paymentDate = e.day.split('-')
+                if(paymentDate[1] === '05') {
+                    monthlyPayments.push(e)
+                }
+            })
+            console.log(monthlyPayments)
+            let paypalTotals = 0
+            monthlyPayments.map((e) => {
+                paypalTotals += e.paypaltotal
+
+            })
+            console.log(paypalTotals)
+
         })
     }
     getPaymentInfo()
