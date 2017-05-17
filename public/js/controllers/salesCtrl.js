@@ -4,18 +4,23 @@ angular.module('app').controller('salesCtrl', function ($scope, mainSrv) {
     // *           Sales and Returns             *
     // *******************************************
 
-    let getSalesInfo = (monthWordSelected) => {
-        mainSrv.getSalesInfo().then((res) => {
-            let salesNums = res
-            let salesMonth = []
-            salesNums.map((e) => {
-                if( e.month === monthWordSelected) {
-                    salesMonth.push(e)
-                }
-            })
-            $scope.sales = salesMonth[0]
-        })
-    }
-    getSalesInfo('may')
+//     let getSalesInfo = (monthWordSelected) => {
+//         mainSrv.getSalesInfo().then((res) => {
+//             let salesNums = res
+//             let salesMonth = []
+//             salesNums.map((e) => {
+//                 if( e.month === monthWordSelected) {
+//                     salesMonth.push(e)
+//                 }
+//             })
+//             $scope.sales = salesMonth[0]
+//         })
+//     }
+//     getSalesInfo('may')
+
+
+mainSrv.getSalesInfo().then((res) => {
+    $scope.sales = mainSrv.salesInfo(res, 'may')
+  })
 
 })

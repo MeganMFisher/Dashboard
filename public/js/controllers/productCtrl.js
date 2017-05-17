@@ -1,5 +1,6 @@
 angular.module('app').controller('productCtrl', function ($scope, mainSrv) {
 
+
     // *******************************************
     // *           Product Type Sold             *
     // *******************************************
@@ -38,6 +39,8 @@ angular.module('app').controller('productCtrl', function ($scope, mainSrv) {
 
             $scope.products = monthlyProductInfo
             // console.log($scope.products)
+    // $scope.products;
+    console.log($scope.products)
         })
     }
     getProductInfo('may')

@@ -12,6 +12,17 @@ angular.module('app').service('mainSrv', function ($http) {
     })
   }
 
+   this.salesInfo = (res, month) => {
+        let salesNums = res
+            let salesMonth = []
+            salesNums.map((e) => {
+                if( e.month === month) {
+                    salesMonth.push(e)
+                }
+            })
+            return salesMonth[0]
+    }
+
 
   // *******************************************
   // *            Website Visitors             *
