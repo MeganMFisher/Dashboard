@@ -32,7 +32,7 @@ angular.module('app').service('paymentsSrv', function ($http) {
             let totalPayments = paypalTotals  + ccTotals
             paymentNums.push(Math.round(ccTotals / totalPayments * 100))
             paymentNums.push(Math.round(paypalTotals / totalPayments * 100))
-            console.log(paymentNums)
+
             return paymentNums
     }
 
