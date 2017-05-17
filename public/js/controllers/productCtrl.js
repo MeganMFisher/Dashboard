@@ -17,29 +17,25 @@ angular.module('app').controller('productCtrl', function ($scope, mainSrv) {
             monthlyProductInfo.map((e) => {
                 totalProductsSold += e.numberproducttypesold
             })
-            console.log(totalProductsSold)
-
             monthlyProductInfo.map((e) => {
                 if(e.producttype === 'clothing') {
-                    let clothingPercent = e.numberproducttypesold / totalProductsSold * 100
-                    e["clothingPercent"] = clothingPercent
+                    let percent = Math.round(e.numberproducttypesold / totalProductsSold * 100)
+                    e["percent"] = percent
                 } else if(e.producttype === 'shoes') {
-                    let shoePercent = e.numberproducttypesold / totalProductsSold * 100
-                    e["shoePercent"] = shoePercent
+                    let percent = Math.round(e.numberproducttypesold / totalProductsSold * 100)
+                    e["percent"] = percent
                 } else if(e.producttype === 'accessories') {
-                    let assessoriesPercent = e.numberproducttypesold / totalProductsSold * 100
-                    e["assessoriesPercent"] = assessoriesPercent
+                    let percent = Math.round(e.numberproducttypesold / totalProductsSold * 100)
+                    e["percent"] = percent
                 } else if(e.producttype === 'makeup') {
-                    let makeupPercent = e.numberproducttypesold / totalProductsSold * 100
-                    e["makeupPercent"] = makeupPercent
+                    let percent = Math.round(e.numberproducttypesold / totalProductsSold * 100)
+                    e["percent"] = percent
                 }
             })
-            
+            monthlyProductInfo.sort((a, b) => {
+                return b.percent - a.percent;
+            })
 
-      
-
-
-            // console.log(res.data)
             $scope.products = monthlyProductInfo
             console.log($scope.products)
         })

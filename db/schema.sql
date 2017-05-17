@@ -140,7 +140,7 @@ CREATE TABLE productTypesSold
 INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'clothing', 291);
 INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'shoes', 149);
 INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'accessories', 31);
-INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'makeup', 11);
+INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('may', 'makeup', 111);
 INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'clothing', 328);
 INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'shoes', 68);
 INSERT INTO productTypesSold (month, productType, numberProductTypeSold) VALUES ('april', 'accessories', 42);
