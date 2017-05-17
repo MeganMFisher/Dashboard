@@ -12,6 +12,18 @@ angular.module('app').service('visitorsSrv', function ($http) {
     })
   }
 
+  this.allVisitorInfo = (res, month) => {
+    let visitors = res
+            let monthVisitors = []
+            visitors.map((e) => {
+                let visitorDate = e.day.split('-')
+                if(visitorDate[1] === month){
+                  monthVisitors.push(e)
+                }
+            })
+            return monthVisitors
+  }
+
    this.visitorsInfo = (res, month) => {
         let visitors = res
             let monthVisitors = []
