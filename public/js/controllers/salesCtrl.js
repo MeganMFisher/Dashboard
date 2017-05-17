@@ -1,4 +1,4 @@
-angular.module('app').controller('salesCtrl', function ($scope, mainSrv) {
+angular.module('app').controller('salesCtrl', function ($scope, salesSrv) {
 
     // *******************************************
     // *           Sales and Returns             *
@@ -19,8 +19,8 @@ angular.module('app').controller('salesCtrl', function ($scope, mainSrv) {
 //     getSalesInfo('may')
 
 
-mainSrv.getSalesInfo().then((res) => {
-    $scope.sales = mainSrv.salesInfo(res, 'may')
-  })
+    salesSrv.getSalesInfo().then((res) => {
+        $scope.sales = salesSrv.salesInfo(res, 'may')
+    })
 
 })

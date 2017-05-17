@@ -2,26 +2,26 @@ angular.module('app').service('mainSrv', function ($http) {
 
   let devUrl = 'http://localhost:3500'
 
-  // *******************************************
-  // *           Sales and Returns             *
-  // *******************************************
+  // // *******************************************
+  // // *           Sales and Returns             *
+  // // *******************************************
 
-  this.getSalesInfo = () => {
-    return $http.get(devUrl + '/sales').then((res) => {
-      return res.data
-    })
-  }
+  // this.getSalesInfo = () => {
+  //   return $http.get(devUrl + '/sales').then((res) => {
+  //     return res.data
+  //   })
+  // }
 
-   this.salesInfo = (res, month) => {
-        let salesNums = res
-            let salesMonth = []
-            salesNums.map((e) => {
-                if( e.month === month) {
-                    salesMonth.push(e)
-                }
-            })
-            return salesMonth[0]
-    }
+  //  this.salesInfo = (res, month) => {
+  //       let salesNums = res
+  //           let salesMonth = []
+  //           salesNums.map((e) => {
+  //               if( e.month === month) {
+  //                   salesMonth.push(e)
+  //               }
+  //           })
+  //           return salesMonth[0]
+  //   }
 
 
   // *******************************************
