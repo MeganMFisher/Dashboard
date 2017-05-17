@@ -1,23 +1,13 @@
-angular.module('app').controller('inventoryCtrl', function ($scope, mainSrv) {
+angular.module('app').controller('inventoryCtrl', function ($scope, inventorySrv) {
 
     // *******************************************
     // *           Product Inventory             *
     // *******************************************
+    
 
-    let getInventoryInfo = (monthWordSelected) => {
-        mainSrv.getInventoryInfo().then((res) => {
-            
-            let inventoryNums = res
-            let inventoryMonth = []
-            inventoryNums.map((e) => {
-                if( e.month === monthWordSelected) {
-                    inventoryMonth.push(e)
-                }
-            })
-            $scope.inventory = inventoryMonth[0]
-        })
-    }
-    getInventoryInfo('may')
+    inventorySrv.getInventoryInfo().then((res) => {
+        $scope.inventory = inventorySrv.inventoryInfo(res, 'may')
+    })
 
 
 })
