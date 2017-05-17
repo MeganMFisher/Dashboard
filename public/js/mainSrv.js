@@ -3,15 +3,15 @@ angular.module('app').service('mainSrv', function ($http) {
   let devUrl = 'http://localhost:3500'
 
 
-  // *******************************************
-  // *            Website Visitors             *
-  // *******************************************
+  // // *******************************************
+  // // *            Website Visitors             *
+  // // *******************************************
 
-  this.getVisitors = () => {
-    return $http.get(devUrl + '/visitors').then((res) => {
-      return res
-    })
-  }
+  // this.getVisitors = () => {
+  //   return $http.get(devUrl + '/visitors').then((res) => {
+  //     return res
+  //   })
+  // }
 
   // *******************************************
   // *           Product Type Sold             *
