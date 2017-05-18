@@ -7,10 +7,10 @@
 
 
         visitorsSrv.getVisitorsInfo().then((res) => {
-            $scope.allVisitorData = visitorsSrv.allVisitorInfo(res, '05')
-            console.log($scope.allVisitorData)
+            $scope.graphVisitorData = visitorsSrv.allVisitorInfo(res, '05')
+            // console.log($scope.graphVisitorData)
             $scope.visitors = visitorsSrv.visitorsInfo(res, '05')
-            console.log($scope.visitors)
+            // console.log($scope.visitors)
         })
 
 })

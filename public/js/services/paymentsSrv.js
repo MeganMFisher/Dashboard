@@ -12,6 +12,38 @@ angular.module('app').service('paymentsSrv', function ($http) {
     })
   }
 
+  this.allCCPaymentInfo = (res, month) => {
+    let payments = res.data
+            let monthlyPayments = []
+            let monthlyCC = []
+            payments.map((e) => {
+                let paymentDate = e.day.split('-')
+                if(paymentDate[1] === month) {
+                    monthlyPayments.push(e)
+                }
+            })
+           monthlyPayments.map((e) => {
+              monthlyCC.push(e.cctotal)
+           })
+           return monthlyCC
+  }
+
+    this.allPaypalPaymentInfo = (res, month) => {
+    let payments = res.data
+            let monthlyPayments = []
+            let monthlyPaypal = []
+            payments.map((e) => {
+                let paymentDate = e.day.split('-')
+                if(paymentDate[1] === month) {
+                    monthlyPayments.push(e)
+                }
+            })
+           monthlyPayments.map((e) => {
+              monthlyPaypal.push(e.paypaltotal)
+           })
+           return monthlyPaypal
+  }
+
 
    this.paymentInfo = (res, month) => {
     let payments = res.data
