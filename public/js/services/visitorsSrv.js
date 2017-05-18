@@ -18,9 +18,11 @@ angular.module('app').service('visitorsSrv', function ($http) {
             visitors.map((e) => {
                 let visitorDate = e.day.split('-')
                 if(visitorDate[1] === month){
-                  monthVisitors.push(e.visitors)
+                  monthVisitors.push(e)
+                  // monthVisitors.push(e.day)
                 }
             })
+            console.log(monthVisitors)
             return monthVisitors
   }
 

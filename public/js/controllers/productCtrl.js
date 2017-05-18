@@ -8,6 +8,7 @@ angular.module('app').controller('productCtrl', function ($scope, productSrv) {
 
     productSrv.getProductInfo().then((res) => {
         $scope.products = productSrv.productInfo(res, 'may')
+        // console.log($scope.products)
     })
 
 })

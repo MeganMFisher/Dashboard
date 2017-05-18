@@ -7,13 +7,13 @@ angular.module('app').controller('paymentsCtrl', function ($scope, paymentsSrv) 
 
     paymentsSrv.getPaymentInfo().then((res) => {
         $scope.graphPaypalData = paymentsSrv.allPaypalPaymentInfo(res, '05')
-        console.log($scope.graphPaypalData)
+        // console.log($scope.graphPaypalData)
 
         $scope.graphCCData = paymentsSrv.allCCPaymentInfo(res, '05')
-        console.log($scope.graphCCData)
+        // console.log($scope.graphCCData)
 
         $scope.payments = paymentsSrv.paymentInfo(res, '05')
-        console.log($scope.payments)
+        // console.log($scope.payments)
     })
 
 })
