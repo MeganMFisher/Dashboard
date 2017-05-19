@@ -12,6 +12,10 @@ angular.module('app').service('visitorsSrv', function ($http) {
     })
   }
 
+  this.testing = () => {
+    return 'hello'
+  }
+
   this.allVisitorInfo = (res, month) => {
     let visitors = res
             let monthVisitors = []
@@ -22,7 +26,7 @@ angular.module('app').service('visitorsSrv', function ($http) {
                   // monthVisitors.push(e.day)
                 }
             })
-            console.log(monthVisitors)
+            // console.log(monthVisitors)
             return monthVisitors
   }
 

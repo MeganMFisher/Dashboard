@@ -1,20 +1,20 @@
 angular.module('app')
   .directive('visitorsBar', function () {
-    // return {
-    //   restrict: 'AE',
-    //   template: '<div id="visitorsBar"></div>',
-    //   scope: {
-    //     visitorData: '='
-    //   },
-    //   controller: function($scope, visitorsCtrl) {
+    return {
+      // restrict: 'AE',
+      // template: '<div id="visitorsBar"></div>',
+      // scope: {},
+      controller: function($scope, visitorsSrv) {
 
-    //   $scope.visitorData = visitorsCtrl.allVisitorInfo();
-    //     console.log($scope.visitorData)
+      $scope.visitorData = visitorsSrv.getVisitorsInfo();
+        console.log($scope.visitorData)
 
-        // let visitorData = $scope.visitorData
-        // console.log(visitorData)
+      // $scope.visitorsData = visitorsSrv.allVisitorInfo()
+
+      //   // let visitorData = $scope.visitorData
+      //   console.log($scope.visitorData)
  
-    // },
+    },
       
-    // }
+    }
   })
