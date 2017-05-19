@@ -3,15 +3,21 @@ angular.module('app')
     return {
       restrict: 'AE',
       template: '<div id="visitorsBar"></div>',
-      // scope: {},
-      controller: function($scope, visitorsSrv) {
+      scope: {
+        visitorsData: '='
+      },
+      controller: function ($scope) {
 
-        visitorsSrv.getVisitorsInfo().then((res) => {
-          $scope.graphVisitorData = visitorsSrv.allVisitorInfo(res, '05')
-          // console.log($scope.graphVisitorData)
+        $scope.$watch('visitorsData', function(newVal, oldVal){
+            console.log($scope.visitorsData) //fire function that rebuilds
         })
- 
-    },
-      
+
+        // visitorsSrv.getVisitorsInfo().then((res) => {
+        //   $scope.graphVisitorData = visitorsSrv.allVisitorInfo(res, '05')
+        //   // console.log($scope.graphVisitorData)
+        // })
+
+      },
+
     }
   })

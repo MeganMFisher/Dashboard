@@ -1,18 +1,21 @@
 angular.module('app')
-  .directive('productAveragePie', function () {
+  .directive('productPie', function () {
     return {
       restrict: 'AE',
-      template: '<div id="productAveragePie"></div>',
-      scope: {
-        averageData: '='
+      template: '<div id="productPie"></div>',
+      // scope: {},
+      controller: function ($scope, productSrv) {
+
+        $scope.testing = productSrv.testing()
+
+        console.log($scope.testing)
+
+        productSrv.getProductInfo().then((res) => {
+          $scope.products = productSrv.productInfo(res, 'may')
+          console.log($scope.products)
+        })
+
       },
-      controller: function($scope) {
 
-        console.log($scope.averageData)
-
-        let averageData = $scope.averageData
-        console.log(averageData)
- 
-      }
     }
   })

@@ -12,6 +12,8 @@ angular.module('app').service('productSrv', function ($http) {
         })
     }
 
+    this.testing = 'hello'
+
     this.productInfo = (res, month) => {
         let productInfo = res
             let monthlyProductInfo = []
