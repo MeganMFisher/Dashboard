@@ -6,13 +6,12 @@ angular.module('app')
       // scope: {},
       controller: function($scope, visitorsSrv) {
 
-      $scope.visitorData = visitorsSrv.getVisitorsInfo();
-        console.log($scope.visitorData)
 
-      // $scope.visitorsData = visitorsSrv.allVisitorInfo()
+            visitorsSrv.getVisitorsInfo().then((res) => {
 
-      //   // let visitorData = $scope.visitorData
-      //   console.log($scope.visitorData)
+            $scope.graphVisitorData = visitorsSrv.allVisitorInfo(res, '05')
+            console.log($scope.graphVisitorData)
+        })
  
     },
       
