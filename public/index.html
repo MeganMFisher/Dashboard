@@ -35,8 +35,11 @@
             </div>
             <div class='graphBox graphBoxSmall' ng-controller="visitorsCtrl">
                 <h1>Website Visitors</h1>
-                <div class='visitorGraphBox'>
-                    <visitors-bar visitor-data='graphVisitorData'></visitors-bar>
+                <div class='visitorGraphBox' id='visitorsBar'>
+
+                    <!--VISITORS GRAPH INPUT-->
+                    <visitors-bar></visitors-bar>
+
                 </div>
                 <div class='visitorsStats'>
                     <div>
@@ -133,6 +136,10 @@
                             <h3>PayPal</h3>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <!--PAYMENTS LINE GRAPH INTO-->
+                    <payments-Line></payments-Line>
                 </div>
             </div>
         </div>
