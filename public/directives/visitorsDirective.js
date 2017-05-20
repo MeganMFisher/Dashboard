@@ -9,7 +9,7 @@ angular.module('app')
       controller: function ($scope) {
 
         $scope.$watch('visitorsData', function(newVal, oldVal){
-            console.log($scope.visitorsData) //fire function that rebuilds
+            // console.log($scope.visitorsData) //fire function that rebuilds
         })
 
         // visitorsSrv.getVisitorsInfo().then((res) => {

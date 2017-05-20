@@ -3,17 +3,14 @@ angular.module('app')
     return {
       restrict: 'AE',
       template: '<div id="productPie"></div>',
-      // scope: {},
-      controller: function ($scope, productSrv) {
+      scope: {
+        productData: '='
+      },
+      controller: function ($scope) {
 
-        $scope.testing = productSrv.testing()
-
-        console.log($scope.testing)
-
-        productSrv.getProductInfo().then((res) => {
-          $scope.products = productSrv.productInfo(res, 'may')
-          console.log($scope.products)
-        })
+       $scope.$watch('productData', function(newVal, oldVal){
+         console.log($scope.productData)
+       })
 
       },
 
