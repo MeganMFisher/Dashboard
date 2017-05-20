@@ -3,13 +3,15 @@ angular.module('app')
     return {
       restrict: 'AE',
       template: '<div id="paymentsLine"></div>',
-      // scope: {},
+      scope: {
+        paymentsData: '='
+      },
       controller: function($scope, paymentsSrv) {
 
-      paymentsSrv.getPaymentInfo().then((res) => {
-        $scope.graphPaypalData = paymentsSrv.allPaypalPaymentInfo(res, '05')
-        // console.log($scope.graphPaypalData)
-    })
+         $scope.$watch('paymentsData', function(){
+          console.log($scope.paymentsData)
+        })
+
  
     },
       
