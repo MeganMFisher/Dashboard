@@ -47,27 +47,8 @@ angular.module('app')
           .enter().append("g")
           .attr("class", "arc");
 
-        var gradient = svg.append("defs")
-          .append("linearGradient")
-          .attr("id", "gradient")
-          .attr("x1", "0%")
-          .attr("y1", "0%")
-          .attr("x2", "100%")
-          .attr("y2", "100%")
-          .attr("spreadMethod", "pad");
-
-        gradient.append("stop")
-          .attr("offset", "0%")
-          .attr("stop-color", "#999")
-          .attr("stop-opacity", 1);
-
-        gradient.append("stop")
-          .attr("offset", "100%")
-          .attr("stop-color", "#111")
-          .attr("stop-opacity", 1);
-
         var color = d3.scaleOrdinal()
-          .range(["#25AAE1", "#297FAA", "#1C648C", 'url(#gradient)']);
+          .range(["#0fe997", "#06f0e9", "#7673e2", '#f476cf']);
 
         g.append("path")
           .attr("d", arc)
@@ -77,7 +58,6 @@ angular.module('app')
 
         let updateProductData = (data) => {
           productData = [data[0].percent, data[1].percent, data[2].percent, data[3].percent]
-          console.log(productData)
           let pie = d3.pie().value(function (d) {
             return d;
           })(productData);
@@ -93,13 +73,8 @@ angular.module('app')
           };
         }
 
-        // $scope.$watch('averageData', function (newValue, oldValue) {
-        //   updateAverageData($scope.averageData)
-        // })
-
        $scope.$watch('productData', function(newVal, oldVal){
          updateProductData($scope.productData)
-         console.log($scope.productData)
        })
 
       },
