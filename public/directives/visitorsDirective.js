@@ -20,12 +20,12 @@ angular.module('app')
 
         let visitorsGraphData = $scope.visitorsData
           let data = []
-          let num = []
+          let num = 100
 
-          visitorsGraphData.map((e) => {
-            data.push(e.day)
-            num.push(e.visitors)
-          })      
+          // visitorsGraphData.map((e) => {
+          //   data.push(e.day)
+          //   num.push(e.visitors)
+          // })      
 
         var margin = {
           top: 40,
@@ -35,7 +35,7 @@ angular.module('app')
         }
         // var height = document.getElementById('visitorsBar').offsetHeight - 100 - margin.top - margin.bottom;
         // var width = document.getElementById('visitorsBar').offsetWidth - margin.right - margin.left;
-        var height = 80;
+        var height = 100;
         var width = 200;
   
 
@@ -190,14 +190,13 @@ angular.module('app')
         $scope.$watch('visitorsData', function(newVal, oldVal){
           let visitorsGraphData = $scope.visitorsData
           let data = []
-          let num = []
+          let num = 100
 
           visitorsGraphData.map((e) => {
-            data.push(e.day)
-            num.push(e.visitors)
+            data.push([e.day, e.visitors])
+        
           })
             console.log(data) 
-            console.log(num) 
 
             updateBarChart(data, num)
         })
