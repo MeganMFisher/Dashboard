@@ -18,10 +18,6 @@ angular.module('app')
         let productData = $scope.productData
         productData = [productData[0].percent, productData[1].percent, productData[2].percent, productData[3].percent]
 
-        // var height = document.getElementById('productPie');
-        // var width = height;
-        // var radius = Math.min(width, height) / 2;
-
         var height = 180;
         var width = 180;
         var radius = Math.min(width, height) / 2;
