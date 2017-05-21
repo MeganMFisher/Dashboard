@@ -24,7 +24,7 @@ angular.module('app')
 
         var arc = d3.arc()
           .outerRadius(radius - 10)
-          .innerRadius(0);
+          .innerRadius(radius - 45);
 
         var pie = d3.pie()
           .sort(null)
@@ -72,6 +72,7 @@ angular.module('app')
        $scope.$watch('productData', function(newVal, oldVal){
          updateProductData($scope.productData)
        })
+
 
       },
 

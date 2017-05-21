@@ -57,7 +57,7 @@ angular.module('app')
           left: 0
         }
         var height = 85;
-        var width = 370;
+        var width = 410;
   
         // var height = document.getElementById('visitorsBar').offsetHeight - 100 - margin.top - margin.bottom;
         // var width = document.getElementById('visitorsBar').offsetWidth - margin.right - margin.left;
