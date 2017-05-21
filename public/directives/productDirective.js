@@ -18,8 +18,12 @@ angular.module('app')
         let productData = $scope.productData
         productData = [productData[0].percent, productData[1].percent, productData[2].percent, productData[3].percent]
 
-        var height = document.getElementById('productDiv');
-        var width = height;
+        // var height = document.getElementById('productPie');
+        // var width = height;
+        // var radius = Math.min(width, height) / 2;
+
+        var height = 160;
+        var width = 160;
         var radius = Math.min(width, height) / 2;
 
         var arc = d3.arc()
@@ -71,13 +75,13 @@ angular.module('app')
             return color(i);
           })
 
-        let updateproductData = (data) => {
+        let updateProductData = (data) => {
           productData = [data[0].percent, data[1].percent, data[2].percent, data[3].percent]
           console.log(productData)
           let pie = d3.pie().value(function (d) {
             return d;
           })(productData);
-          path = d3.select('#productPie').selectAll('path').data(pie)
+          let path = d3.select('#productPie').selectAll('path').data(pie)
           path.transition().duration(500).attrTween("d", arcTween)
         }
 
@@ -94,7 +98,7 @@ angular.module('app')
         // })
 
        $scope.$watch('productData', function(newVal, oldVal){
-        //  updateproductData($scope.productData)
+         updateProductData($scope.productData)
          console.log($scope.productData)
        })
 
