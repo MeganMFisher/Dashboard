@@ -33,7 +33,6 @@ angular.module('app').service('paymentsSrv', function ($http) {
               'number': Number(monthlyCCPayments[i])
             })
           }
-        //   console.log(monthlyCC)
            return monthlyCC
   }
 
@@ -57,7 +56,6 @@ angular.module('app').service('paymentsSrv', function ($http) {
               'number': Number(monthlyPaypalPayments[i])
             })
           }
-          console.log(monthlyPaypal)
            return monthlyPaypal
   }
 
