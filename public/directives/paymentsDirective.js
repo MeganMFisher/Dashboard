@@ -9,50 +9,49 @@ angular.module('app')
       controller: function($scope, paymentsSrv) {
 
         $scope.paymentsData = [
-          {date: 1, number : 100},
-          {date: 2, number : 20},
-          {date: 3, number : 30},
-          {date: 4, number : 40},
-          {date: 5, number : 100},
-          {date: 6, number : 20},
-          {date: 7, number : 30},
-          {date: 8, number : 300},
-          {date: 9, number : 100},
-          {date: 10, number : 20},
-          {date: 11, number : 10},
-          {date: 12, number : 20},
-          {date: 13, number : 30},
-          {date: 14, number : 40},
-          {date: 15, number : 10},
-          {date: 16, number : 20},
-          {date: 17, number : 30},
-          {date: 18, number : 40},
-          {date: 19, number : 10},
-          {date: 20, number : 20},
-          {date: 21, number : 10},
-          {date: 22, number : 20},
-          {date: 23, number : 30},
-          {date: 24, number : 40},
-          {date: 25, number : 10},
-          {date: 26, number : 20},
-          {date: 27, number : 30},
-          {date: 28, number : 40},
-          {date: 29, number : 10},
-          {date: 30, number : 20},
+          {date: 1, number: 0},
+          {date: 2, number: 0},
+          {date: 3, number: 0},
+          {date: 4, number: 0},
+          {date: 5, number: 0},
+          {date: 6, number: 0},
+          {date: 7, number: 0},
+          {date: 8, number: 0},
+          {date: 9, number: 0},
+          {date: 10, number: 0},
+          {date: 11, number: 0},
+          {date: 12, number: 0},
+          {date: 13, number: 0},
+          {date: 14, number: 0},
+          {date: 15, number: 0},
+          {date: 16, number: 0},
+          {date: 17, number: 0},
+          {date: 18, number: 0},
+          {date: 19, number: 0},
+          {date: 20, number: 0},
+          {date: 21, number: 0},
+          {date: 22, number: 0},
+          {date: 23, number: 0},
+          {date: 24, number: 0},
+          {date: 25, number: 0},
+          {date: 26, number: 0},
+          {date: 27, number: 0},
+          {date: 28, number: 0},
+          {date: 29, number: 0},
+          {date: 30, number: 0},
   
         ]
 
         var data = $scope.paymentsData;
-        console.log(data)
 
           var margin = {
-            top: 20,
-            right: 40,
-            bottom: 20,
-            left: 40
+            top: 50,
+            right: 0,
+            bottom: 0,
+            left: -1
           };
-          var width = 400;
-          var height = 200;
+          var width = 2400;
+          var height = 180;
 
         // var width = document.getElementById('cohortLineChartDiv').offsetWidth - margin.right - margin.left;
         // var height = document.getElementById('cohortLineChartDiv').offsetHeight - margin.top - margin.bottom - 80;
@@ -107,26 +106,26 @@ angular.module('app')
 
         // svg.call(tip)
 
-        var areaGradient = svg.append('defs')
-          .append("linearGradient")
-          .attr('id', 'areaGradient')
-          .attr("x1", "0%").attr("y1", "0%")
-          .attr("x2", "0%").attr("y2", "100%");
+        // var areaGradient = svg.append('defs')
+        //   .append("linearGradient")
+        //   .attr('id', 'areaGradient')
+        //   .attr("x1", "0%").attr("y1", "0%")
+        //   .attr("x2", "0%").attr("y2", "100%");
 
-        areaGradient.append("stop")
-          .attr("offset", "0%")
-          .attr("stop-color", "#21AAE1")
-          .attr("stop-opacity", 0.5);
+        // areaGradient.append("stop")
+        //   .attr("offset", "0%")
+        //   .attr("stop-color", "#0fe997")
+        //   .attr("stop-opacity", 0.5);
 
-        areaGradient.append("stop")
-          .attr("offset", "50%")
-          .attr("stop-color", "#21AAE1")
-          .attr("stop-opacity", 0.1);
+        // areaGradient.append("stop")
+        //   .attr("offset", "50%")
+        //   .attr("stop-color", "#0fe997")
+        //   .attr("stop-opacity", 0.1);
 
-        areaGradient.append("stop")
-          .attr("offset", "100%")
-          .attr("stop-color", "#21AAE1")
-          .attr("stop-opacity", 0);
+        // areaGradient.append("stop")
+        //   .attr("offset", "100%")
+        //   .attr("stop-color", "#0fe997")
+        //   .attr("stop-opacity", 0);
 
   
         x.domain([0, 100])
@@ -180,7 +179,7 @@ angular.module('app')
           .attr("dx", -12)
           .attr("dy", -31)
           .attr("offset", "100%")
-          .attr('fill', '#21AAE1')
+          .attr('fill', '#0fe997')
           .style('font-size', '11px')
 
         focus.append("line")
@@ -193,7 +192,7 @@ angular.module('app')
           .attr("x1", width)
           .attr("x2", width);
 
-        // let overlayWidth = (width * (($scope.paymentsData.length - 1) / 100)) - 1
+        let overlayWidth = (width * (($scope.paymentsData.length - 1) / 100)) - 1
 
         svg.append("rect")
           .attr("class", "overlay")
@@ -220,7 +219,6 @@ angular.module('app')
 
         let updatePaymentsData = (someData) => {
            var newData = $scope.paymentsData;
-           console.log(newData)
 
           let maxDomain = 20;
           if ((d3.max(newData, function (d) {
@@ -286,7 +284,7 @@ angular.module('app')
             .attr("dx", -12)
             .attr("dy", -31)
             .attr("offset", "100%")
-            .attr('fill', '#21AAE1')
+            .attr('fill', '#0fe997')
             .style('font-size', '11px')
 
           focus.append("line")
@@ -299,7 +297,7 @@ angular.module('app')
             .attr("x1", width)
             .attr("x2", width);
 
-          let overlayWidth = (width * (($scope.cohortTimeData.length - 1) / 100)) - 1
+          let overlayWidth = (width * (($scope.paymentsData.length - 1) / 100)) - 1
 
           svg.append("rect")
             .attr("class", "overlay")
