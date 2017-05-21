@@ -22,8 +22,8 @@ angular.module('app')
         // var width = height;
         // var radius = Math.min(width, height) / 2;
 
-        var height = 160;
-        var width = 160;
+        var height = 180;
+        var width = 180;
         var radius = Math.min(width, height) / 2;
 
         var arc = d3.arc()
