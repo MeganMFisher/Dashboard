@@ -25,7 +25,7 @@ angular.module('app')
 
         let visitorsGraphData = $scope.visitorsData
           let data = []
-          let num = 100
+          let num = 200
 
           visitorsGraphData.map((e) => {
             data.push([e.day, e.visitors])
@@ -38,12 +38,12 @@ angular.module('app')
           top: 0,
           right: 0,
           bottom: 0,
-          left: 30
+          left: -2
         }
         // var height = document.getElementById('visitorsBar').offsetHeight - 100 - margin.top - margin.bottom;
         // var width = document.getElementById('visitorsBar').offsetWidth - margin.right - margin.left;
-        var height = 100;
-        var width = 300;
+        var height = 85;
+        var width = 370;
   
 
         var x = d3.scaleBand()
@@ -94,6 +94,7 @@ angular.module('app')
         svg.selectAll(".bar")
           .data(data)
           .enter().append("rect")
+          // .attr("rx", 10)
           .attr("class", "bar")
           .attr("x", function (d) {
             return x(d[0]);
@@ -106,8 +107,9 @@ angular.module('app')
             return height - y(d[1]);
           })
           .attr('fill', function (d) {
-            if (d[1] >= num) return '#21AAE1'
-            else return '#141414';
+            if (d[1] > num) return '#06f0e9'
+            else if(d[1] <= num && d[1] >= 100) return '#079691'
+            else return '#036865';
           })
           // .on('mouseover', function (d) {
           //   tip.show(d)
@@ -186,8 +188,10 @@ angular.module('app')
             return height - yD(d[1]);
           })
           .attr('fill', function (d) {
-            if (d[1] >= num) return '#21AAE1'
-            else return '#141414';
+            if (d[1] > num) return '#06f0e9'
+            else if(d[1] <= num && d[1] >= 100) return '#079691'
+            else return '#036865';
+
           })
           
           ya.transition().duration(1000).call(yAxis)
@@ -197,7 +201,7 @@ angular.module('app')
         $scope.$watch('visitorsData', function(newVal, oldVal){
           let visitorsGraphData = $scope.visitorsData
           let data = []
-          let num = 100
+          let num = 200
 
           visitorsGraphData.map((e) => {
             data.push([e.day, e.visitors])
