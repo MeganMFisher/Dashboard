@@ -9,49 +9,66 @@ angular.module('app')
       controller: function ($scope) {
 
         $scope.visitorsData = [
-          { day: 1, visitors: 100 }, 
-          { day: 2, visitors: 250 }, 
-          { day: 3, visitors: 175 }, 
-          { day: 4, visitors: 200 },
-          { day: 5, visitors: 100 }, 
-          { day: 6, visitors: 250 }, 
-          { day: 7, visitors: 175 }, 
-          { day: 8, visitors: 200 },
-          { day: 9, visitors: 100 }, 
-          { day: 10, visitors: 250 }, 
-          { day: 11, visitors: 175 }, 
-          { day: 12, visitors: 200 },
+          { day: 1,  visitors: 0 }, 
+          { day: 2,  visitors: 0 }, 
+          { day: 3,  visitors: 0 }, 
+          { day: 4,  visitors: 0 },
+          { day: 5,  visitors: 0 }, 
+          { day: 6,  visitors: 0 }, 
+          { day: 7,  visitors: 0 }, 
+          { day: 8,  visitors: 0 },
+          { day: 9,  visitors: 0 }, 
+          { day: 10,  visitors: 0 }, 
+          { day: 11,  visitors: 0 }, 
+          { day: 12,  visitors: 0 },
+          { day: 13,  visitors: 0 }, 
+          { day: 14,  visitors: 0 }, 
+          { day: 15,  visitors: 0 }, 
+          { day: 16,  visitors: 0 },
+          { day: 17,  visitors: 0 }, 
+          { day: 18,  visitors: 0 }, 
+          { day: 19,  visitors: 0 }, 
+          { day: 20,  visitors: 0 },
+          { day: 21,  visitors: 0 }, 
+          { day: 22,  visitors: 0 }, 
+          { day: 23,  visitors: 0 }, 
+          { day: 24,  visitors: 0 },
+          { day: 25,  visitors: 0 }, 
+          { day: 26,  visitors: 0 },
+          { day: 27,  visitors: 0 }, 
+          { day: 28,  visitors: 0 }, 
+          { day: 29,  visitors: 0 }, 
+          { day: 30,  visitors: 0 }
         ]
 
-        let visitorsGraphData = $scope.visitorsData
+          let visitorsArr = $scope.visitorsData
           let data = []
           let num = 200
 
-          visitorsGraphData.map((e) => {
-            data.push([e.day, e.visitors])
-        
-          })
+            for(let i = 0; i < visitorsArr.length; i++) {
+              data.push([i + 1, visitorsArr[i].visitors])
+            }
 
-             
 
         var margin = {
           top: 0,
           right: 0,
           bottom: 0,
-          left: -2
+          left: 0
         }
-        // var height = document.getElementById('visitorsBar').offsetHeight - 100 - margin.top - margin.bottom;
-        // var width = document.getElementById('visitorsBar').offsetWidth - margin.right - margin.left;
         var height = 85;
         var width = 370;
   
+        // var height = document.getElementById('visitorsBar').offsetHeight - 100 - margin.top - margin.bottom;
+        // var width = document.getElementById('visitorsBar').offsetWidth - margin.right - margin.left;
+
 
         var x = d3.scaleBand()
           .domain(data.map(function (d) {
             return d[0];
           }))
           .range([0, width])
-          .padding(.1);
+          .padding(.5);
 
         var y = d3.scaleLinear()
           .domain([0, d3.max(data, function (d) {
@@ -63,13 +80,6 @@ angular.module('app')
 
         var yAxis = d3.axisLeft(y)
 
-        // var tip = d3.tip()
-        //   .attr('class', 'd3-tip')
-        //   .offset([-10, 0])
-        //   .html(function (d) {
-        //     return "<strong>Student:</strong> <span style='color:#21AAE1'> " + d[0] + "</span>";
-        //   })
-        //   .style('font-size', '11px')
 
         var svg = d3.select("#visitorsBar").append("svg")
           .attr("width", width + margin.left + margin.right)
@@ -78,23 +88,19 @@ angular.module('app')
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-        // svg.call(tip);
-
-
-        svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-          .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 6)
-          .attr("dy", ".71em")
-          .style("text-anchor", "end")
-          // .text("Student");
+        // svg.append("g")
+          // .attr("class", "y axis")
+          // .call(yAxis)
+          // .append("text")
+          // .attr("transform", "rotate(-90)")
+          // .attr("y", 6)
+          // .attr("dy", ".71em")
+          // .style("text-anchor", "end")
 
         svg.selectAll(".bar")
           .data(data)
           .enter().append("rect")
-          // .attr("rx", 10)
+          .attr("rx", 3)
           .attr("class", "bar")
           .attr("x", function (d) {
             return x(d[0]);
@@ -111,26 +117,6 @@ angular.module('app')
             else if(d[1] <= num && d[1] >= 100) return '#079691'
             else return '#036865';
           })
-          // .on('mouseover', function (d) {
-          //   tip.show(d)
-          //   if (d[1] >= num) {
-          //     d3.select(this)
-          //       .attr("fill", "#297FAA");
-          //   } else {
-          //     d3.select(this)
-          //       .attr("fill", "#000");
-          //   }
-          // })
-          // .on('mouseout', function (d) {
-          //   tip.hide(d)
-          //   if (d[1] >= num) {
-          //     d3.select(this)
-          //       .attr("fill", '#21AAE1');
-          //   } else {
-          //     d3.select(this)
-          //       .attr("fill", "#141414");
-          //   }
-          // })
 
         function type(d) {
           d[1] = +d[1];
@@ -145,38 +131,14 @@ angular.module('app')
           })]).range([height - 20, 0]);
 
           var yAxis = d3.axisLeft(yD)
-
           var ya = d3.select('#visitorsBar')
                     .selectAll('.y.axis')
-
-
 
         var bars = d3.select('#visitorsBar')
           .selectAll(".bar")
           .data(newData)
           .attr("y", height)
           .attr("height", 0)
-          // .on('mouseover', function (d) {
-          //     tip.show(d)
-          //     if (d[1] >= num) {
-          //       d3.select(this)
-          //         .attr("fill", "#297FAA");
-          //     } else {
-          //       d3.select(this)
-          //         .attr("fill", "#000");
-          //     }
-          //   })
-          //   .on('mouseout', function (d) {
-          //     tip.hide(d)
-          //     if (d[1] >= num) {
-          //       d3.select(this)
-          //         .attr("fill", '#21AAE1');
-          //     } else {
-          //       d3.select(this)
-          //         .attr("fill", "#141414");
-          //     }
-          //   })
-
 
           bars.transition()
               .duration(1000)
@@ -199,19 +161,16 @@ angular.module('app')
 
 
         $scope.$watch('visitorsData', function(newVal, oldVal){
-          let visitorsGraphData = $scope.visitorsData
+          let visitorsArr = $scope.visitorsData
           let data = []
           let num = 200
 
-          visitorsGraphData.map((e) => {
-            data.push([e.day, e.visitors])
+            for(let i = 0; i < visitorsArr.length; i++) {
+              data.push([i + 1, visitorsArr[i].visitors])
+            }
         
-          })
-            console.log(data) 
-
             updateBarChart(data, num)
-        })
-
+          })
 
       },
 
