@@ -9,7 +9,7 @@ angular.module('app')
       controller: function($scope, paymentsSrv) {
 
          $scope.$watch('paymentsData', function(){
-          console.log($scope.paymentsData)
+          // console.log($scope.paymentsData)
         })
 
  

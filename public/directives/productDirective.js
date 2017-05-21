@@ -8,12 +8,17 @@ angular.module('app')
       },
       controller: function ($scope) {
 
-       
+       $scope.productData = [
+          {percent: 25},
+          {percent: 25},
+          {percent: 25},
+          {percent: 25}
+        ]
 
         let productData = $scope.productData
         productData = [productData[0].percent, productData[1].percent, productData[2].percent, productData[3].percent]
 
-        var height = document.getElementById('productDiv').offsetHeight / 3;
+        var height = document.getElementById('productDiv');
         var width = height;
         var radius = Math.min(width, height) / 2;
 
