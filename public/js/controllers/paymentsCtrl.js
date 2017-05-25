@@ -16,4 +16,16 @@ angular.module('app').controller('paymentsCtrl', function ($scope, paymentsSrv) 
         // console.log($scope.payments)
     })
 
+    // $scope.ccGraphData = () => {
+    //      paymentsSrv.getPaymentInfo().then((res) => {
+    //      $scope.graphPaypalData = paymentsSrv.allPaypalPaymentInfo(res, '05')
+    //      })
+    // }
+
+    // $scope.ppGraphData = () => {
+    //     paymentsSrv.getPaymentInfo().then((res) => {
+    //     $scope.graphCCData = paymentsSrv.allCCPaymentInfo(res, '05')
+    //      })
+    // }
+
 })

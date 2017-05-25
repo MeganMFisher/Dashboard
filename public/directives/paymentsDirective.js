@@ -56,7 +56,6 @@ angular.module('app')
         // var width = document.getElementById('cohortLineChartDiv').offsetWidth - margin.right - margin.left;
         // var height = document.getElementById('cohortLineChartDiv').offsetHeight - margin.top - margin.bottom - 80;
 
-
         var bisectDate = d3.bisector(function (d) {
           return d.date;
         }).left
@@ -81,6 +80,14 @@ angular.module('app')
           .y(function (d) {
             return y(d.number);
           });
+
+          // var	line2 = d3.line()
+	        //   .x(function(d) { 
+          //     return x(d.date); 
+          //   })
+	        //   .y(function(d) { 
+          //     return y(d.open); }
+          //     );
 
         var areaFunction = d3.area()
           .x(function (d) {
@@ -149,6 +156,11 @@ angular.module('app')
           .datum(data)
           .attr("class", "line")
           .attr("d", line)
+
+          // svg.append("path")		// Add the valueline2 path.
+		      // .datum(data1)
+		      // .style("stroke", "red")
+		      // .attr("d", line2);
 
         svg.append("path")
           .attr("class", "area")
