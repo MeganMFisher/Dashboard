@@ -59,7 +59,7 @@ angular.module('app')
 
         var width = document.getElementById('visitorsGraphBoxDiv').offsetWidth - margin.right - margin.left - 70;
         var height = document.getElementById('visitorsGraphBoxDiv').offsetHeight - margin.top - margin.bottom - 50;
-        
+
 
         var x = d3.scaleBand()
           .domain(data.map(function (d) {
@@ -94,6 +94,8 @@ angular.module('app')
           // .attr("y", 6)
           // .attr("dy", ".71em")
           // .style("text-anchor", "end")
+
+    
 
         svg.selectAll(".bar")
           .data(data)
@@ -137,6 +139,25 @@ angular.module('app')
           .data(newData)
           .attr("y", height)
           .attr("height", 0)
+
+           var defs = svg.append("defs");
+
+                   //Filter for the outside glow
+          var filter = defs.append("filter")
+            .attr("id","glow");
+          filter.append("feGaussianBlur")
+            .attr("stdDeviation","3.5")
+            .attr("result","coloredBlur");
+          var feMerge = filter.append("feMerge");
+          feMerge.append("feMergeNode")
+            .attr("in","coloredBlur");
+          feMerge.append("feMergeNode")
+            .attr("in","SourceGraphic");
+
+
+          d3.selectAll(".bar")
+	        .style("filter", "url(#glow)");
+          
 
           bars.transition()
               .duration(1000)

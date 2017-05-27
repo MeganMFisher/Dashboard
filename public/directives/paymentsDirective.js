@@ -214,6 +214,24 @@ angular.module('app')
             .selectAll('.line')
             .datum(newData)
 
+          var defs = svg.append("defs");
+
+          //Filter for the outside glow
+          var filter = defs.append("filter")
+            .attr("id","glow");
+          filter.append("feGaussianBlur")
+            .attr("stdDeviation","3.5")
+            .attr("result","coloredBlur");
+          var feMerge = filter.append("feMerge");
+          feMerge.append("feMergeNode")
+            .attr("in","coloredBlur");
+          feMerge.append("feMergeNode")
+            .attr("in","SourceGraphic");
+
+
+          d3.selectAll(".line")
+	        .style("filter", "url(#glow)");
+
           /////// Hover over line
 
           // var focus = svg.append("g")
