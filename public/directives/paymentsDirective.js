@@ -45,16 +45,14 @@ angular.module('app')
         var data = $scope.paymentsData;
 
           var margin = {
-            top: 50,
+            top: 0,
             right: 0,
             bottom: 0,
             left: -1
           };
-          var width = 2400;
-          var height = 180;
 
-        // var width = document.getElementById('cohortLineChartDiv').offsetWidth - margin.right - margin.left;
-        // var height = document.getElementById('cohortLineChartDiv').offsetHeight - margin.top - margin.bottom - 80;
+        var width = document.getElementById('paymentsLineChartDiv').offsetWidth - margin.right - margin.left;
+        var height = document.getElementById('paymentsLineChartDiv').offsetHeight - margin.top - margin.bottom;
 
         var bisectDate = d3.bisector(function (d) {
           return d.date;
@@ -67,8 +65,6 @@ angular.module('app')
           .range([height, 0]);
 
         var xAxis = d3.axisBottom(x)
-        // .ticks(d3.timeMinute.every(30))
-        // .tickFormat(d3.timeFormat("%I:%M"));
 
         var yAxis = d3.axisLeft(y)
           .ticks(5);
@@ -80,14 +76,6 @@ angular.module('app')
           .y(function (d) {
             return y(d.number);
           });
-
-          // var	line2 = d3.line()
-	        //   .x(function(d) { 
-          //     return x(d.date); 
-          //   })
-	        //   .y(function(d) { 
-          //     return y(d.open); }
-          //     );
 
         var areaFunction = d3.area()
           .x(function (d) {
@@ -103,37 +91,6 @@ angular.module('app')
           .attr("height", height + margin.top + margin.bottom)
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        // var tip = d3.tip()
-        //   .attr('class', 'd3-tip')
-        //   .offset([-10, 0])
-        //   .html(function (d) {
-        //     return "<strong>number:</strong> <span style='color:#21AAE1'>" + d.number + "</span>";
-        //   })
-
-        // svg.call(tip)
-
-        // var areaGradient = svg.append('defs')
-        //   .append("linearGradient")
-        //   .attr('id', 'areaGradient')
-        //   .attr("x1", "0%").attr("y1", "0%")
-        //   .attr("x2", "0%").attr("y2", "100%");
-
-        // areaGradient.append("stop")
-        //   .attr("offset", "0%")
-        //   .attr("stop-color", "#0fe997")
-        //   .attr("stop-opacity", 0.5);
-
-        // areaGradient.append("stop")
-        //   .attr("offset", "50%")
-        //   .attr("stop-color", "#0fe997")
-        //   .attr("stop-opacity", 0.1);
-
-        // areaGradient.append("stop")
-        //   .attr("offset", "100%")
-        //   .attr("stop-color", "#0fe997")
-        //   .attr("stop-opacity", 0);
-
   
         x.domain([0, 100])
 
@@ -148,67 +105,20 @@ angular.module('app')
 
         y.domain([0, maxDomain])
 
-        svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-
         svg.append("path")
           .datum(data)
           .attr("class", "line")
           .attr("d", line)
 
-          // svg.append("path")		// Add the valueline2 path.
-		      // .datum(data1)
-		      // .style("stroke", "red")
-		      // .attr("d", line2);
-
-        svg.append("path")
-          .attr("class", "area")
-          .style("fill", "url(#areaGradient)")
-          .attr("d", areaFunction(data))
-
         var focus = svg.append("g")
           .attr("class", "focus")
           .style("display", "none");
-
-        focus.append("circle")
-          .attr("r", 2);
-
-        focus.append("rect")
-          .attr("width", 55)
-          .attr("height", 30)
-          .attr("x", -28)
-          .attr("y", -49.7)
-          .attr('fill', 'rgba(0, 0, 0, 0.8)')
-          .attr("rx", 2)
-          .attr("ry", 2)
-
-        focus.append("path") //shape for triangle                       
-          .attr('fill', 'rgba(0, 0, 0, 0.8)')
-          .attr("d", "M -5, -20, L 5, -20, L 0, -10 Z")
-
-        focus.append("text")
-          .attr("dx", -12)
-          .attr("dy", -31)
-          .attr("offset", "100%")
-          .attr('fill', '#0fe997')
-          .style('font-size', '11px')
-
-        focus.append("line")
-          .attr("class", "x-hover-line hover-line")
-          .attr("y1", 0)
-          .attr("y2", height)
-
-        focus.append("line")
-          .attr("class", "y-hover-line hover-line")
-          .attr("x1", width)
-          .attr("x2", width);
 
         let overlayWidth = (width * (($scope.paymentsData.length - 1) / 100)) - 1
 
         svg.append("rect")
           .attr("class", "overlay")
-          // .attr("width", overlayWidth)
+          .attr("width", overlayWidth)
           .attr("height", height)
           .on("mouseover", function () {
             focus.style("display", null);
@@ -272,12 +182,12 @@ angular.module('app')
             .selectAll('.line')
             .datum(newData)
 
+          /////// Hover over line
+
           var focus = svg.append("g")
             .attr("class", "focus")
             .style("display", "none");
 
-          focus.append("circle")
-            .attr("r", 2);
 
           focus.append("rect")
             .attr("width", 55)
@@ -288,7 +198,8 @@ angular.module('app')
             .attr("rx", 2)
             .attr("ry", 2)
 
-          focus.append("path") //shape for triangle                       
+          focus.append("path") 
+
             .attr('fill', 'rgba(0, 0, 0, 0.8)')
             .attr("d", "M -5, -20, L 5, -20, L 0, -10 Z")
 
@@ -299,15 +210,7 @@ angular.module('app')
             .attr('fill', '#0fe997')
             .style('font-size', '11px')
 
-          focus.append("line")
-            .attr("class", "x-hover-line hover-line")
-            .attr("y1", 0)
-            .attr("y2", height)
-
-          focus.append("line")
-            .attr("class", "y-hover-line hover-line")
-            .attr("x1", width)
-            .attr("x2", width);
+          /////////////////////
 
           let overlayWidth = (width * (($scope.paymentsData.length - 1) / 100)) - 1
 
@@ -334,7 +237,6 @@ angular.module('app')
 
           var gradient = d3.select('#paymentsLine').selectAll(".area")
 
-
           gradient.transition()
             .duration(1000)
             .attr("d", areaFunction(newData))
@@ -344,13 +246,9 @@ angular.module('app')
             .attr("d", newLine)
 
           ya.transition().duration(1000).call(yAxis)
-
         }
           
-
-
          $scope.$watch('paymentsData', function(newValue, oldValue){
-          //  console.log($scope.paymentsData)
           updatePaymentsData($scope.paymentsData)
           
         })

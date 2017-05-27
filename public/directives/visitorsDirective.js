@@ -59,10 +59,7 @@ angular.module('app')
 
         var width = document.getElementById('visitorsGraphBoxDiv').offsetWidth - margin.right - margin.left - 70;
         var height = document.getElementById('visitorsGraphBoxDiv').offsetHeight - margin.top - margin.bottom - 50;
-  
-        // var height = document.getElementById('visitorsBar').offsetHeight - 100 - margin.top - margin.bottom;
-        // var width = document.getElementById('visitorsBar').offsetWidth - margin.right - margin.left;
-
+        
 
         var x = d3.scaleBand()
           .domain(data.map(function (d) {
