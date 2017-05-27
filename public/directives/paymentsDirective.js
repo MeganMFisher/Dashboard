@@ -9,36 +9,36 @@ angular.module('app')
       controller: function($scope, paymentsSrv) {
 
         $scope.paymentsData = [
-          {date: 1, number: 0},
-          {date: 2, number: 0},
-          {date: 3, number: 0},
-          {date: 4, number: 0},
-          {date: 5, number: 0},
-          {date: 6, number: 0},
-          {date: 7, number: 0},
-          {date: 8, number: 0},
-          {date: 9, number: 0},
-          {date: 10, number: 0},
-          {date: 11, number: 0},
-          {date: 12, number: 0},
-          {date: 13, number: 0},
-          {date: 14, number: 0},
-          {date: 15, number: 0},
-          {date: 16, number: 0},
-          {date: 17, number: 0},
-          {date: 18, number: 0},
-          {date: 19, number: 0},
-          {date: 20, number: 0},
-          {date: 21, number: 0},
-          {date: 22, number: 0},
-          {date: 23, number: 0},
-          {date: 24, number: 0},
-          {date: 25, number: 0},
-          {date: 26, number: 0},
-          {date: 27, number: 0},
-          {date: 28, number: 0},
-          {date: 29, number: 0},
-          {date: 30, number: 0},
+          {date: 1, number: 0, number2: 0},
+          {date: 2, number: 0, number2: 0},
+          {date: 3, number: 0, number2: 0},
+          {date: 4, number: 0, number2: 0},
+          {date: 5, number: 0, number2: 0},
+          {date: 6, number: 0, number2: 0},
+          {date: 7, number: 0, number2: 0},
+          {date: 8, number: 0, number2: 0},
+          {date: 9, number: 0, number2: 0},
+          {date: 10, number: 0, number2: 0},
+          {date: 11, number: 0, number2: 0},
+          {date: 12, number: 0, number2: 0},
+          {date: 13, number: 0, number2: 0},
+          {date: 14, number: 0, number2: 0},
+          {date: 15, number: 0, number2: 0},
+          {date: 16, number: 0, number2: 0},
+          {date: 17, number: 0, number2: 0},
+          {date: 18, number: 0, number2: 0},
+          {date: 19, number: 0, number2: 0},
+          {date: 20, number: 0, number2: 0},
+          {date: 21, number: 0, number2: 0},
+          {date: 22, number: 0, number2: 0},
+          {date: 23, number: 0, number2: 0},
+          {date: 24, number: 0, number2: 0},
+          {date: 25, number: 0, number2: 0},
+          {date: 26, number: 0, number2: 0},
+          {date: 27, number: 0, number2: 0},
+          {date: 28, number: 0, number2: 0},
+          {date: 29, number: 0, number2: 0},
+          {date: 30, number: 0, number2: 0}
   
         ]
 
@@ -77,6 +77,15 @@ angular.module('app')
             return y(d.number);
           });
 
+           var line2 = d3.line()
+          .x(function (d) {
+            return x(d.date);
+          })
+          .y(function (d) {
+            return y(d.number2);
+          });
+
+
         var areaFunction = d3.area()
           .x(function (d) {
             return x(d.date);
@@ -110,6 +119,13 @@ angular.module('app')
           .attr("class", "line")
           .attr("d", line)
 
+        svg.append("path")
+          .data(data)
+          .attr("class", "line")
+          .style("stroke", "purple")
+          .attr("d", line2);
+
+
         var focus = svg.append("g")
           .attr("class", "focus")
           .style("display", "none");
@@ -136,7 +152,7 @@ angular.module('app')
             focus.select("text").text(d.number);
           });
 
-           // ******** UPDATE DATA FUNCTION FOR PROJECT SELECTED ********* // 
+           // -------- UPDATE Graph with Data -------- // 
 
 
         let updatePaymentsData = (someData) => {
@@ -164,6 +180,15 @@ angular.module('app')
             .y(function (d) {
               return yD(d.number);
             });
+
+
+           var line2 = d3.line()
+          .x(function (d) {
+            return x(d.date);
+          })
+          .y(function (d) {
+            return y(d.number);
+          });
 
           var areaFunction = d3.area()
             .x(function (d) {

@@ -12,53 +12,26 @@ angular.module('app').service('paymentsSrv', function ($http) {
     })
   }
 
-  this.allCCPaymentInfo = (res, month) => {
+  this.allPaymentInfo = (res, month) => {
     let payments = res.data
             let monthlyPayments = []
-            let monthlyCCPayments = []
-            let monthlyCC = []
+            let monthlyAllPayments = []
             payments.map((e) => {
                 let paymentDate = e.day.split('-')
                 if(paymentDate[1] === month) {
                     monthlyPayments.push(e)
                 }
             })
-           monthlyPayments.map((e) => {
-              monthlyCCPayments.push(e.cctotal)
-           })
-          
-          for (let i = 0; i < monthlyCCPayments.length; i++) {
-            monthlyCC.push({
+
+          for (let i = 0; i < monthlyPayments.length; i++) {
+            monthlyAllPayments.push({
               'date': i + 1,
-              'number': Number(monthlyCCPayments[i])
+              'number': Number(monthlyPayments[i].cctotal), 
+              'number2': Number(monthlyPayments[i].paypaltotal)
             })
           }
-           return monthlyCC
+           return monthlyAllPayments
   }
-
-    this.allPaypalPaymentInfo = (res, month) => {
-    let payments = res.data
-            let monthlyPayments = []
-            let monthlyPaypalPayments = []
-            let monthlyPaypal = []
-            payments.map((e) => {
-                let paymentDate = e.day.split('-')
-                if(paymentDate[1] === month) {
-                   monthlyPayments.push(e)
-                }
-            })
-           monthlyPayments.map((e) => {
-              monthlyPaypalPayments.push(e.paypaltotal)
-           })
-           for (let i = 0; i < monthlyPaypalPayments.length; i++) {
-            monthlyPaypal.push({
-              'date': i + 1,
-              'number': Number(monthlyPaypalPayments[i])
-            })
-          }
-           return monthlyPaypal
-  }
-
 
    this.paymentInfo = (res, month) => {
     let payments = res.data
