@@ -39,16 +39,15 @@ angular.module('app')
           {date: 28, number: 0, number2: 0},
           {date: 29, number: 0, number2: 0},
           {date: 30, number: 0, number2: 0}
-  
         ]
 
         var data = $scope.paymentsData;
 
           var margin = {
             top: 0,
-            right: 0,
+            right: 30,
             bottom: 0,
-            left: -1
+            left: 30
           };
 
         var width = document.getElementById('paymentsLineChartDiv').offsetWidth - margin.right - margin.left;
@@ -101,18 +100,22 @@ angular.module('app')
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
-        x.domain([0, 100])
+        // x.domain([0, 100])
 
-        let maxDomain = 20;
-        if ((d3.max(data, function (d) {
-            return d.number;
-          }) * 1.1) > 20) {
-          maxDomain = d3.max(data, function (d) {
-            return d.number;
-          }) * 1.1
-        }
+        // let maxDomain = 20;
+        // if ((d3.max(data, function (d) {
+        //     return d.number;
+        //   }) * 1.1) > 20) {
+        //   maxDomain = d3.max(data, function (d) {
+        //     return d.number;
+        //   }) * 1.1
+        // }
 
-        y.domain([0, maxDomain])
+        // y.domain([0, maxDomain])
+
+        x.domain(d3.extent(data, function(d) { return d.date; }));
+        y.domain([0, d3.max(data, function(d) {
+	        return Math.max(d.number, d.number2); })]);
 
         svg.append("path")
           .datum(data)
@@ -122,7 +125,7 @@ angular.module('app')
         svg.append("path")
           .data(data)
           .attr("class", "line")
-          .style("stroke", "purple")
+          .style("stroke", "#7673e2")
           .attr("d", line2);
 
 
@@ -166,6 +169,9 @@ angular.module('app')
               return d.number;
             }) * 1.1) + 5
           }
+        //   x.domain(d3.extent(data, function(d) { return d.date; }));
+        // y.domain([0, d3.max(data, function(d) {
+	      //   return Math.max(d.number, d.number2); })]);
 
           var yD = d3.scaleLinear()
             .range([height, 0]).domain([0, maxDomain])
@@ -187,7 +193,7 @@ angular.module('app')
             return x(d.date);
           })
           .y(function (d) {
-            return y(d.number);
+            return y(d.number2);
           });
 
           var areaFunction = d3.area()
@@ -204,36 +210,37 @@ angular.module('app')
             .selectAll('.y.axis')
 
           var lines = d3.select('#paymentsLine')
+            // .selectAll('.line', '.line2')
             .selectAll('.line')
             .datum(newData)
 
           /////// Hover over line
 
-          var focus = svg.append("g")
-            .attr("class", "focus")
-            .style("display", "none");
+          // var focus = svg.append("g")
+          //   .attr("class", "focus")
+          //   .style("display", "none");
 
 
-          focus.append("rect")
-            .attr("width", 55)
-            .attr("height", 30)
-            .attr("x", -28)
-            .attr("y", -49.7)
-            .attr('fill', 'rgba(0, 0, 0, 0.8)')
-            .attr("rx", 2)
-            .attr("ry", 2)
+          // focus.append("rect")
+          //   .attr("width", 55)
+          //   .attr("height", 30)
+          //   .attr("x", -28)
+          //   .attr("y", -49.7)
+          //   .attr('fill', 'rgba(0, 0, 0, 0.8)')
+          //   .attr("rx", 2)
+          //   .attr("ry", 2)
 
-          focus.append("path") 
+          // focus.append("path") 
 
-            .attr('fill', 'rgba(0, 0, 0, 0.8)')
-            .attr("d", "M -5, -20, L 5, -20, L 0, -10 Z")
+          //   .attr('fill', 'rgba(0, 0, 0, 0.8)')
+          //   .attr("d", "M -5, -20, L 5, -20, L 0, -10 Z")
 
-          focus.append("text")
-            .attr("dx", -12)
-            .attr("dy", -31)
-            .attr("offset", "100%")
-            .attr('fill', '#0fe997')
-            .style('font-size', '11px')
+          // focus.append("text")
+          //   .attr("dx", -12)
+          //   .attr("dy", -31)
+          //   .attr("offset", "100%")
+          //   .attr('fill', '#0fe997')
+          //   .style('font-size', '11px')
 
           /////////////////////
 
@@ -256,16 +263,12 @@ angular.module('app')
                 d1 = newData[i],
                 d = x0 - d0.date > d1.date - x0 ? d1 : d0;
               focus.attr("transform", "translate(" + x(d.date) + "," + yD(d.number) + ")");
-              focus.select("text").text(d.number);
+              // focus.select("text").text(d.number);
             });
 
 
           var gradient = d3.select('#paymentsLine').selectAll(".area")
 
-          gradient.transition()
-            .duration(1000)
-            .attr("d", areaFunction(newData))
-            .style("fill", "url(#areaGradient)")
           lines.transition()
             .duration(1000)
             .attr("d", newLine)
@@ -274,7 +277,6 @@ angular.module('app')
         }
           
          $scope.$watch('paymentsData', function(newValue, oldValue){
-           console.log($scope.paymentsData)
           updatePaymentsData($scope.paymentsData)
           
         })
