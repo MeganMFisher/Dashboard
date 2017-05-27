@@ -274,6 +274,7 @@ angular.module('app')
         }
           
          $scope.$watch('paymentsData', function(newValue, oldValue){
+           console.log($scope.paymentsData)
           updatePaymentsData($scope.paymentsData)
           
         })
