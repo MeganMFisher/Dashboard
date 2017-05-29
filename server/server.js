@@ -1,8 +1,8 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
   massive = require('massive'),
-  cors = require('cors'),
-  config = require('./config.js')
+  cors = require('cors')
+  // config = require('./config.js')
 
 var app = express();
 app.use(bodyParser.json());
@@ -12,9 +12,9 @@ var port = 3500;
 
 
 var db = massive.connect({
-    // connectionString: process.env.database
+    connectionString: process.env.database
     // connectionString: config.database || process.env.database
-    connectionString: config.database
+    // connectionString: config.database 
   },
   function (err, localdb) {
     db = localdb;
