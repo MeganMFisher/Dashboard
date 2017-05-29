@@ -140,25 +140,6 @@ angular.module('app')
           .attr("y", height)
           .attr("height", 0)
 
-           var defs = svg.append("defs");
-
-                   //Filter for the outside glow
-          var filter = defs.append("filter")
-            .attr("id","glow");
-          filter.append("feGaussianBlur")
-            .attr("stdDeviation","3.5")
-            .attr("result","coloredBlur");
-          var feMerge = filter.append("feMerge");
-          feMerge.append("feMergeNode")
-            .attr("in","coloredBlur");
-          feMerge.append("feMergeNode")
-            .attr("in","SourceGraphic");
-
-
-          d3.selectAll(".bar")
-	        .style("filter", "url(#glow)");
-          
-
           bars.transition()
               .duration(1000)
               .attr("width", x.bandwidth())
