@@ -1,1 +1,1 @@
-web: node gulp
+web: node server/server.js
