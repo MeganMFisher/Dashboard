@@ -125,7 +125,7 @@ angular.module('app')
         svg.append("path")
           .data(data)
           .attr("class", "line")
-          .style("stroke", "#7673e2")
+          // .style("stroke", "#7673e2")
           .attr("d", line2);
 
 
