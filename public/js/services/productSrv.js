@@ -2,7 +2,7 @@ angular.module('app').service('productSrv', function ($http) {
 
   let devUrl = 'http://localhost:3500'
 
-  let heroku = 'https://ecommercedashboard.herokuapp.com/'
+  let heroku = 'https://ecommercedashboard.herokuapp.com'
 
     // *******************************************
     // *           Product Type Sold             *
