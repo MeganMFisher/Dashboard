@@ -2,12 +2,14 @@ angular.module('app').service('salesSrv', function ($http) {
 
   let devUrl = 'http://localhost:3500'
 
+  let heroku = 'https://ecommercedashboard.herokuapp.com/'
+
   // *******************************************
   // *           Sales and Returns             *
   // *******************************************
 
   this.getSalesInfo = () => {
-    return $http.get(devUrl + '/sales').then((res) => {
+    return $http.get(heroku + '/sales').then((res) => {
       return res.data
     })
   }

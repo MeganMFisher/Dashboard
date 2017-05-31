@@ -2,12 +2,14 @@ angular.module('app').service('inventorySrv', function ($http) {
 
   let devUrl = 'http://localhost:3500'
 
+  let heroku = 'https://ecommercedashboard.herokuapp.com/'
+
   // *******************************************
   // *           Sales and Returns             *
   // *******************************************
 
     this.getInventoryInfo = () => {
-        return $http.get(devUrl + '/inventory').then((res) => {
+        return $http.get(heroku + '/inventory').then((res) => {
             return res.data
         })
   }

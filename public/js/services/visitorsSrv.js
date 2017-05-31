@@ -2,12 +2,14 @@ angular.module('app').service('visitorsSrv', function ($http) {
 
   let devUrl = 'http://localhost:3500'
 
+  let heroku = 'https://ecommercedashboard.herokuapp.com/'
+
   // *******************************************
   // *            Website Visitors             *
   // *******************************************
 
   this.getVisitorsInfo = () => {
-    return $http.get(devUrl + '/visitors').then((res) => {
+    return $http.get(heroku + '/visitors').then((res) => {
       return res.data
     })
   }
