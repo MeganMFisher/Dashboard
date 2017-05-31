@@ -1,3 +1,3 @@
 # Ecommerce Dashboard
 
-![homePage](/assets/dashboard.png)
+![homePage](/public/assets/dashboard.png)
