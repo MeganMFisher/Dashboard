@@ -9,36 +9,36 @@ angular.module('app')
       controller: function($scope, paymentsSrv) {
 
         $scope.paymentsData = [
-          {date: 1, number: 0, number2: 0},
-          {date: 2, number: 0, number2: 0},
-          {date: 3, number: 0, number2: 0},
-          {date: 4, number: 0, number2: 0},
-          {date: 5, number: 0, number2: 0},
-          {date: 6, number: 0, number2: 0},
-          {date: 7, number: 0, number2: 0},
-          {date: 8, number: 0, number2: 0},
-          {date: 9, number: 0, number2: 0},
-          {date: 10, number: 0, number2: 0},
-          {date: 11, number: 0, number2: 0},
-          {date: 12, number: 0, number2: 0},
-          {date: 13, number: 0, number2: 0},
-          {date: 14, number: 0, number2: 0},
-          {date: 15, number: 0, number2: 0},
-          {date: 16, number: 0, number2: 0},
-          {date: 17, number: 0, number2: 0},
-          {date: 18, number: 0, number2: 0},
-          {date: 19, number: 0, number2: 0},
-          {date: 20, number: 0, number2: 0},
-          {date: 21, number: 0, number2: 0},
-          {date: 22, number: 0, number2: 0},
-          {date: 23, number: 0, number2: 0},
-          {date: 24, number: 0, number2: 0},
-          {date: 25, number: 0, number2: 0},
-          {date: 26, number: 0, number2: 0},
-          {date: 27, number: 0, number2: 0},
-          {date: 28, number: 0, number2: 0},
-          {date: 29, number: 0, number2: 0},
-          {date: 30, number: 0, number2: 0}
+          {date: 1, number: 0, numberTwo: 0},
+          {date: 2, number: 0, numberTwo: 0},
+          {date: 3, number: 0, numberTwo: 0},
+          {date: 4, number: 0, numberTwo: 0},
+          {date: 5, number: 0, numberTwo: 0},
+          {date: 6, number: 0, numberTwo: 0},
+          {date: 7, number: 0, numberTwo: 0},
+          {date: 8, number: 0, numberTwo: 0},
+          {date: 9, number: 0, numberTwo: 0},
+          {date: 10, number: 0, numberTwo: 0},
+          {date: 11, number: 0, numberTwo: 0},
+          {date: 12, number: 0, numberTwo: 0},
+          {date: 13, number: 0, numberTwo: 0},
+          {date: 14, number: 0, numberTwo: 0},
+          {date: 15, number: 0, numberTwo: 0},
+          {date: 16, number: 0, numberTwo: 0},
+          {date: 17, number: 0, numberTwo: 0},
+          {date: 18, number: 0, numberTwo: 0},
+          {date: 19, number: 0, numberTwo: 0},
+          {date: 20, number: 0, numberTwo: 0},
+          {date: 21, number: 0, numberTwo: 0},
+          {date: 22, number: 0, numberTwo: 0},
+          {date: 23, number: 0, numberTwo: 0},
+          {date: 24, number: 0, numberTwo: 0},
+          {date: 25, number: 0, numberTwo: 0},
+          {date: 26, number: 0, numberTwo: 0},
+          {date: 27, number: 0, numberTwo: 0},
+          {date: 28, number: 0, numberTwo: 0},
+          {date: 29, number: 0, numberTwo: 0},
+          {date: 30, number: 0, numberTwo: 0}
         ]
 
         var data = $scope.paymentsData;
@@ -76,12 +76,12 @@ angular.module('app')
             return y(d.number);
           });
 
-           var line2 = d3.line()
+           var lineTwo = d3.line()
           .x(function (d) {
             return x(d.date);
           })
           .y(function (d) {
-            return y(d.number2);
+            return y(d.numberTwo);
           });
 
 
@@ -115,7 +115,7 @@ angular.module('app')
 
         x.domain(d3.extent(data, function(d) { return d.date; }));
         y.domain([0, d3.max(data, function(d) {
-	        return Math.max(d.number, d.number2); })]);
+	        return Math.max(d.number, d.numberTwo); })]);
 
         svg.append("path")
           .datum(data)
@@ -126,7 +126,7 @@ angular.module('app')
           .data(data)
           .attr("class", "line")
           // .style("stroke", "#7673e2")
-          .attr("d", line2);
+          .attr("d", lineTwo);
 
 
         var focus = svg.append("g")
@@ -171,7 +171,7 @@ angular.module('app')
           }
         //   x.domain(d3.extent(data, function(d) { return d.date; }));
         // y.domain([0, d3.max(data, function(d) {
-	      //   return Math.max(d.number, d.number2); })]);
+	      //   return Math.max(d.number, d.numberTwo); })]);
 
           var yD = d3.scaleLinear()
             .range([height, 0]).domain([0, maxDomain])
@@ -188,12 +188,12 @@ angular.module('app')
             });
 
 
-           var line2 = d3.line()
+           var newLineTwo = d3.line()
           .x(function (d) {
             return x(d.date);
           })
           .y(function (d) {
-            return y(d.number2);
+            return y(d.numberTwo);
           });
 
           var areaFunction = d3.area()
@@ -210,7 +210,7 @@ angular.module('app')
             .selectAll('.y.axis')
 
           var lines = d3.select('#paymentsLine')
-            // .selectAll('.line', '.line2')
+            // .selectAll('.line', '.lineTwo')
             .selectAll('.line')
             .datum(newData)
 
@@ -272,6 +272,7 @@ angular.module('app')
           lines.transition()
             .duration(1000)
             .attr("d", newLine)
+            // .attr("d", newLineTwo)
 
           ya.transition().duration(1000).call(yAxis)
         }
