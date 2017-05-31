@@ -57,7 +57,7 @@ angular.module('app')
           left: 0
         }
 
-        var width = document.getElementById('visitorsGraphBoxDiv').offsetWidth - margin.right - margin.left - 70;
+        var width = document.getElementById('visitorsGraphBoxDiv').offsetWidth - margin.right - margin.left - 50;
         var height = document.getElementById('visitorsGraphBoxDiv').offsetHeight - margin.top - margin.bottom - 50;
 
 
